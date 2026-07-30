@@ -157,6 +157,12 @@ A Lighthouse audit of `cart.html` returned a Performance score of 79, with the b
 
 These changes only affect load order, not appearance, and directly target the render-blocking and font-display audits from Lighthouse.
 
+A follow-up Lighthouse audit on `products.html` also flagged **"Improve image delivery"** (an estimated 13,110 KiB saving) and **"LCP request discovery"**.
+
+**Problem:** every product image on the page - including the 12 product-grid photos and all 12 hidden product modal images - was being downloaded immediately when the page loaded, even the ones far below the fold or hidden inside a modal the visitor might never open.
+
+**Solution:** `loading="lazy"` was added to every image except the one above-the-fold category image, so the browser only downloads an image once it's about to scroll into view (or, for modal images, only once needed). `decoding="async"` was also added so image decoding doesn't block the rest of the page from rendering. The same change was applied to `index.html`'s featured products grid and product modals, since all of that content sits below the hero video. This reduces the amount of data downloaded on initial page load without changing how anything looks. The remaining part of that saving would require compressing/resizing the actual image files themselves, which is a manual step outside of the code (e.g. using a tool like Squoosh or TinyPNG).
+
 ## Academic Integrity
 
 This project was created as a summative assignment for CPU4104 and is submitted as original work.
