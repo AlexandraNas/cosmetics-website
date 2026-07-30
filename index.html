@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGL | Alexa Glow London</title>
+
+    <meta name="description"
+          content="Discover luxury skincare, makeup, hair care and beauty tools at AGL - Alexa Glow London. Premium beauty essentials designed to enhance your natural glow.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="shipping-banner">
+        FREE UK SHIPPING ON ORDERS OVER £40
+    </div>
+
+    <!-- header + nav -->
+    <header>
+        <nav class="navbar">
+
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span>AGL</span>
+                <small>Alexa Glow London</small>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="products.html">
+                        Shop <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html#skincare">Skincare</a></li>
+                        <li><a href="products.html#makeup">Makeup</a></li>
+                        <li><a href="products.html#haircare">Hair Care</a></li>
+                        <li><a href="products.html#tools">Beauty Tools</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-utility">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    </form>
+                </div>
+
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-text">Bag</span>
+                    <i class="fa-solid fa-bag-shopping cart-icon"></i>
+                    <span class="cart-count">(0)</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- slide-out mobile menu panel -->
+        <div class="mobile-menu">
+            <button class="close-menu" aria-label="Close menu">&times;</button>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="products.html#skincare">Skincare</a>
+            <a href="products.html#makeup">Makeup</a>
+            <a href="products.html#haircare">Hair Care</a>
+            <a href="products.html#tools">Beauty Tools</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- hero banner -->
+        <section class="hero">
+            <video class="hero-bg-video" autoplay muted loop playsinline>
+                <source src="media/video/Final.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-text">
+                <h1>Discover Your Natural Glow</h1>
+
+                <p>
+                    Skincare and beauty essentials designed
+                    to enhance your confidence and radiance.
+                </p>
+
+                <a href="products.html" class="primary-btn">Shop Collection</a>
+            </div>
+        </section>
+
+        <!-- featured products grid -->
+        <section class="products">
+            <h2>Discover Our Beauty Essentials</h2>
+
+            <div class="product-grid">
+
+                <div class="card">
+                    <img src="media/images/VitC.png"
+                         alt="AGL Vitamin C Brightening Serum"
+                         class="product-image"
+                         id="vitaminImage">
+                    <h3>AGL Vitamin C Brightening Serum</h3>
+                    <p>Skincare Collection</p>
+                    <strong>£18.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="vitamin-c-serum"
+                                data-name="Vitamin C Brightening Serum"
+                                data-price="18.99"
+                                data-image="media/images/VitC.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="media/images/AcidHyaluronic.png"
+                         alt="AGL Hyaluronic Acid Moisturiser"
+                         class="product-image"
+                         id="moisturiserImage">
+                    <h3>AGL Hyaluronic Acid Moisturiser</h3>
+                    <p>Skincare Collection</p>
+                    <strong>£22.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="hyaluronic-moisturiser"
+                                data-name="Hyaluronic Acid Moisturiser"
+                                data-price="20.00"
+                                data-image="media/images/AcidHyaluronic.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="media/images/Foundation01.png"
+                         alt="AGL Matte Liquid Foundation"
+                         class="product-image"
+                         id="foundationImage">
+                    <h3>AGL Matte Liquid Foundation</h3>
+                    <p>Available in 3 shades</p>
+
+                    <div class="shade-swatches">
+                        <span class="foundation nude"
+                              title="Light Nude"
+                              data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
+                        <span class="foundation beige"
+                              title="Natural Beige"
+                              data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
+                        <span class="foundation tan"
+                              title="Warm Tan"
+                              data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
+                    </div>
+
+                    <strong>£25.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="foundation"
+                                data-name="Matte Liquid Foundation"
+                                data-price="25.99"
+                                data-image="media/images/Foundation01.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="media/images/02SoftRoseNude.png"
+                         alt="AGL Velvet Matte Lipstick"
+                         class="product-image"
+                         id="lipstickImage">
+                    <h3>AGL Velvet Matte Lipstick</h3>
+                    <p>Available in 4 shades</p>
+
+                    <div class="lipstick-swatches">
+                        <span class="lip soft-rose-nude"
+                              title="Soft Rose Nude"
+                              data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
+                        <span class="lip rosewood"
+                              title="Rosewood"
+                              data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
+                        <span class="lip velvet-ruby"
+                              title="Velvet Ruby"
+                              data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
+                        <span class="lip berry-nude"
+                              title="Berry Nude"
+                              data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
+                    </div>
+
+                    <strong>£15.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="lipstick"
+                                data-name="Velvet Matte Lipstick"
+                                data-price="15.99"
+                                data-image="media/images/02SoftRoseNude.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="media/images/ArganOil.png"
+                         alt="AGL Argan Hair Oil"
+                         class="product-image"
+                         id="arganOilImage">
+                    <h3>AGL Argan Hair Oil</h3>
+                    <p>Hair Care Collection</p>
+                    <strong>£15.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="argan-hair-oil"
+                                data-name="Argan Hair Oil"
+                                data-price="15.99"
+                                data-image="media/images/ArganOil.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="media/images/BrushSet.png"
+                         alt="AGL Professional Makeup Brush Set"
+                         class="product-image"
+                         id="brushSetImage">
+                    <h3>AGL Professional Makeup Brush Set</h3>
+                    <p>Beauty Tools Collection</p>
+                    <strong>£39.99</strong>
+                    <div class="product-footer">
+                        <button class="primary-btn add-to-bag"
+                                data-id="brush-set"
+                                data-name="Professional Makeup Brush Set"
+                                data-price="39.99"
+                                data-image="media/images/BrushSet.png">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="brand-footer">
+        <div class="footer-top">
+
+            <!-- Newsletter -->
+            <div class="glow-club">
+                <h2>The Glow Club</h2>
+
+                <p>Receive beauty tips, offers and new product launches.</p>
+
+                <div class="subscribe-box">
+                    <label for="newsletterEmail" class="sr-only">Your email</label>
+                    <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email" required>
+                    <button class="primary-btn" type="submit">Subscribe</button>
+                </div>
+                <p>Please enter a valid email address</p>
+
+                <p class="subscribe-note">
+                    By signing up, you agree to our
+                    <a href="policy.html">Privacy Policy.</a>
+                </p>
+            </div>
+
+            <!-- Links + Social -->
+            <div class="footer-navigation">
+
+                <div class="footer-links">
+                    <h3>Navigate</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Official</h3>
+                    <a href="faq.html">FAQ</a>
+                    <a href="policy.html">Policy</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Social</h3>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                        Facebook
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 AGL Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- product modals -->
+
+    <!-- Vit C Modal -->
+    <div id="vitaminModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/VitC.png"
+                     alt="AGL Vitamin C Brightening Serum"
+                     class="modal-image">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL SKINCARE</p>
+                <h2>Vitamin C Brightening Serum</h2>
+                <p class="modal-price">£18.99</p>
+
+                <p class="modal-description">
+                    A lightweight daily serum designed to visibly improve radiance,
+                    hydrate the skin and reduce the appearance of dark spots.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Brightens dull skin</p>
+                    <p>✓ Deeply hydrates</p>
+                    <p>✓ Suitable for all skin types</p>
+                    <p>✓ Dermatologically tested</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Vitamin C</span>
+                    <span>Niacinamide</span>
+                    <span>Hyaluronic Acid</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="vitamin-c-serum"
+                        data-name="Vitamin C Brightening Serum"
+                        data-price="18.99"
+                        data-image="media/images/VitC.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hyaluronic Acid Moisturiser Modal -->
+    <div id="moisturiserModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/AcidHyaluronic.png"
+                     alt="AGL Hyaluronic Acid Moisturiser"
+                     class="modal-image">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL SKINCARE</p>
+                <h2>Hyaluronic Acid Moisturiser</h2>
+                <p class="modal-price">£22.99</p>
+
+                <p class="modal-description">
+                    A rich yet lightweight daily moisturiser that delivers long-lasting
+                    hydration, strengthens the skin's moisture barrier and leaves skin
+                    feeling soft, smooth and refreshed.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Provides intense, long-lasting hydration</p>
+                    <p>✓ Strengthens the skin's moisture barrier</p>
+                    <p>✓ Leaves skin soft and supple</p>
+                    <p>✓ Suitable for all skin types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Hyaluronic Acid</span>
+                    <span>Ceramides</span>
+                    <span>Vitamin E</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="hyaluronic-moisturiser"
+                        data-name="Hyaluronic Acid Moisturiser"
+                        data-price="22.99"
+                        data-image="media/images/AcidHyaluronic.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matte Liquid Foundation Modal -->
+    <div id="foundationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Foundation01.png"
+                     alt="AGL Matte Liquid Foundation"
+                     class="modal-image"
+                     id="foundationModalImage">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL MAKEUP</p>
+                <h2>Matte Liquid Foundation</h2>
+                <p class="modal-price">£25.99</p>
+
+                <p class="modal-description">
+                    A lightweight matte liquid foundation with buildable coverage and
+                    SPF 20 to help protect the skin from daily UV exposure while
+                    providing a smooth, natural-looking finish that lasts all day.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Buildable medium-to-full coverage</p>
+                    <p>✓ Long-lasting matte finish</p>
+                    <p>✓ SPF 20 sun protection</p>
+                    <p>✓ Suitable for all skin types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Vitamin E</span>
+                    <span>Niacinamide</span>
+                    <span>Glycerin</span>
+                </div>
+
+                <h4 class="ingredients-title">Available Shades</h4>
+                <div class="modal-swatches">
+                    <span class="foundation nude"
+                          title="Light Nude"
+                          data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
+                    <span class="foundation beige"
+                          title="Natural Beige"
+                          data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
+                    <span class="foundation tan"
+                          title="Warm Tan"
+                          data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="foundation"
+                        data-name="Matte Liquid Foundation"
+                        data-price="25.99"
+                        data-image="media/images/Foundation01.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Velvet Matte Lipstick Modal -->
+    <div id="lipstickModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/02SoftRoseNude.png"
+                     alt="AGL Velvet Matte Lipstick"
+                     class="modal-image"
+                     id="lipstickModalImage">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL MAKEUP</p>
+                <h2>Velvet Matte Lipstick</h2>
+                <p class="modal-price">£15.99</p>
+
+                <p class="modal-description">
+                    A luxurious velvet matte lipstick with rich, highly pigmented
+                    colour and a lightweight formula that glides on effortlessly
+                    for a smooth, comfortable finish.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Highly pigmented colour</p>
+                    <p>✓ Comfortable matte finish</p>
+                    <p>✓ Long-lasting wear</p>
+                    <p>✓ Enriched with nourishing Vitamin E</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Vitamin E</span>
+                    <span>Jojoba Oil</span>
+                    <span>Shea Butter</span>
+                </div>
+
+                <h4 class="ingredients-title">Available Shades</h4>
+                <div class="modal-swatches">
+                    <span class="lip soft-rose-nude"
+                          title="Soft Rose Nude"
+                          data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
+                    <span class="lip rosewood"
+                          title="Rosewood"
+                          data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
+                    <span class="lip velvet-ruby"
+                          title="Velvet Ruby"
+                          data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
+                    <span class="lip berry-nude"
+                          title="Berry Nude"
+                          data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="lipstick"
+                        data-name="Velvet Matte Lipstick"
+                        data-price="15.99"
+                        data-image="media/images/02SoftRoseNude.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Argan Hair Oil Modal -->
+    <div id="arganOilModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/ArganOil.png"
+                     alt="AGL Argan Hair Oil"
+                     class="modal-image">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL HAIRCARE</p>
+                <h2>Argan Hair Oil</h2>
+                <p class="modal-price">£15.99</p>
+
+                <p class="modal-description">
+                    A lightweight nourishing hair oil infused with argan oil to smooth
+                    frizz, enhance shine and leave hair feeling soft, silky and
+                    healthy without weighing it down.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Smooths frizz and flyaways</p>
+                    <p>✓ Adds natural shine</p>
+                    <p>✓ Lightweight, non-greasy formula</p>
+                    <p>✓ Suitable for all hair types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Argan Oil</span>
+                    <span>Vitamin E</span>
+                    <span>Jojoba Oil</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="argan-hair-oil"
+                        data-name="Argan Hair Oil"
+                        data-price="15.99"
+                        data-image="media/images/ArganOil.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Makeup Brush Set Modal -->
+    <div id="brushSetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/BrushSet.png"
+                     alt="AGL Professional Makeup Brush Set"
+                     class="modal-image">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL BEAUTY TOOLS</p>
+                <h2>Professional Makeup Brush Set</h2>
+                <p class="modal-price">£39.99</p>
+
+                <p class="modal-description">
+                    A luxury 12-piece makeup brush collection with ultra-soft synthetic
+                    bristles, a stylish travel case and matching brush holder, designed
+                    for flawless face and eye makeup application.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Complete face and eye brush collection</p>
+                    <p>✓ Soft synthetic bristles</p>
+                    <p>✓ Includes travel case and holder</p>
+                    <p>✓ Vegan and cruelty-free</p>
+                </div>
+
+                <h4 class="ingredients-title">Set Includes</h4>
+                <div class="ingredient-tags">
+                    <span>12 Makeup Brushes</span>
+                    <span>Travel Case</span>
+                    <span>Brush Holder</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="brush-set"
+                        data-name="Professional Makeup Brush Set"
+                        data-price="39.99"
+                        data-image="media/images/BrushSet.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bagNotification" class="bag-notification">
+        Added to your bag
+    </div>
+
+    <script src="js/bag.js"></script>
+    <script src="js/products.js"></script>
+
+</body>
+</html>

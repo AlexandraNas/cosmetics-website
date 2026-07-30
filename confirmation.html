@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGL | Order Confirmation</title>
+
+    <meta name="description"
+          content="Thank you for your order with AGL. This is a demonstration website for educational purposes.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="shipping-banner">
+        FREE UK SHIPPING ON ORDERS OVER £40
+    </div>
+
+    <!-- header + nav -->
+    <header>
+        <nav class="navbar">
+
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span>AGL</span>
+                <small>Alexa Glow London</small>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="products.html">
+                        Shop <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html#skincare">Skincare</a></li>
+                        <li><a href="products.html#makeup">Makeup</a></li>
+                        <li><a href="products.html#haircare">Hair Care</a></li>
+                        <li><a href="products.html#tools">Beauty Tools</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-utility">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    </form>
+                </div>
+
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-text">Bag</span>
+                    <i class="fa-solid fa-bag-shopping cart-icon"></i>
+                    <span class="cart-count">(0)</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- the slide-out mobile menu panel -->
+        <div class="mobile-menu">
+            <button class="close-menu" aria-label="Close menu">&times;</button>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="products.html#skincare">Skincare</a>
+            <a href="products.html#makeup">Makeup</a>
+            <a href="products.html#haircare">Hair Care</a>
+            <a href="products.html#tools">Beauty Tools</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- order confirmation -->
+        <section class="confirmation-page">
+            <div class="container">
+
+                <div class="confirmation-card">
+                    <i class="fa-solid fa-circle-check confirmation-icon"></i>
+
+                    <h1>Thank You!</h1>
+
+                    <p class="confirmation-text">
+                        Your order has been placed successfully.
+                    </p>
+
+                    <p class="confirmation-number">
+                        Order Number:
+                        <strong id="orderNumber">AGL-000000</strong>
+                    </p>
+
+                    <div class="confirmation-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            This website is a university project.
+                            No real payment has been processed and no products
+                            will be dispatched.
+                        </p>
+                    </div>
+
+                    <a href="products.html" class="primary-btn">Continue Shopping</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="brand-footer">
+        <div class="footer-top">
+
+            <!-- Newsletter -->
+            <div class="glow-club">
+                <h2>The Glow Club</h2>
+
+                <p>Receive beauty tips, offers and new product launches.</p>
+
+                <div class="subscribe-box">
+                    <label for="newsletterEmail" class="sr-only">Your email</label>
+                    <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email" required>
+                    <button class="primary-btn" type="submit">Subscribe</button>
+                </div>
+                <p>Please enter a valid email address</p>
+
+                <p class="subscribe-note">
+                    By signing up, you agree to our
+                    <a href="policy.html">Privacy Policy.</a>
+                </p>
+            </div>
+
+            <!-- Links + Social -->
+            <div class="footer-navigation">
+
+                <!-- Explore -->
+                <div class="footer-links">
+                    <h3>Navigate</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-links">
+                    <h3>Official</h3>
+                    <a href="faq.html">FAQ</a>
+                    <a href="policy.html">Policy</a>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="footer-links">
+                    <h3>Social</h3>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                        Facebook
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 AGL Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/bag.js"></script>
+    <script src="js/confirmation.js"></script>
+
+</body>
+</html>

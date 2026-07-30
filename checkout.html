@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGL | Checkout</title>
+
+    <meta name="description"
+          content="Securely complete your purchase at AGL. Review your order and checkout with our luxury beauty collection.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="shipping-banner">
+        FREE UK SHIPPING ON ORDERS OVER £40
+    </div>
+
+    <!-- header + nav -->
+    <header>
+        <nav class="navbar">
+
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span>AGL</span>
+                <small>Alexa Glow London</small>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="products.html">
+                        Shop <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html#skincare">Skincare</a></li>
+                        <li><a href="products.html#makeup">Makeup</a></li>
+                        <li><a href="products.html#haircare">Hair Care</a></li>
+                        <li><a href="products.html#tools">Beauty Tools</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-utility">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    </form>
+                </div>
+
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-text">Bag</span>
+                    <i class="fa-solid fa-bag-shopping cart-icon"></i>
+                    <span class="cart-count">(0)</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- the slide-out mobile menu panel -->
+        <div class="mobile-menu">
+            <button class="close-menu" aria-label="Close menu">&times;</button>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="products.html#skincare">Skincare</a>
+            <a href="products.html#makeup">Makeup</a>
+            <a href="products.html#haircare">Hair Care</a>
+            <a href="products.html#tools">Beauty Tools</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- checkout hero -->
+        <section class="checkout-hero">
+            <div class="container">
+                <h1>Checkout</h1>
+                <p>Complete your purchase securely.</p>
+            </div>
+        </section>
+
+        <!-- checkout form + order summary -->
+        <section class="checkout">
+            <div class="container checkout-container">
+
+                <!-- Billing Form -->
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+
+                        <!-- Billing -->
+                        <div class="checkout-section">
+                            <h2>Billing Details</h2>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">Town / City</label>
+                                    <input type="text" id="city" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="postcode">Postcode</label>
+                                    <input type="text" id="postcode" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country">
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Ireland">Ireland</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Delivery -->
+                        <div class="checkout-section">
+                            <h2>Delivery Method</h2>
+
+                            <label class="radio-option">
+                                <input type="radio" name="delivery" checked>
+                                <span>Standard Delivery (2–4 Business Days) – FREE</span>
+                            </label>
+                        </div>
+
+                        <!-- Payment -->
+                        <div class="checkout-section">
+                            <h2>Payment</h2>
+
+                            <label class="radio-option">
+                                <input type="radio" name="payment" checked>
+                                <span>Credit / Debit Card</span>
+                            </label>
+
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text"
+                                       id="cardNumber"
+                                       placeholder="1234 5678 9012 3456"
+                                       maxlength="19"
+                                       required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="password" id="cvv" maxlength="3" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-btn place-order-btn">Place Order</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- order summary -->
+                <aside class="order-summary">
+                    <h2>Your Order</h2>
+
+                    <div id="checkoutItems">
+                        <!-- products loaded with JavaScript -->
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="checkoutSubtotal">£0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="checkoutShipping">FREE</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">£0.00</span>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="brand-footer">
+        <div class="footer-top">
+
+            <!-- Newsletter -->
+            <div class="glow-club">
+                <h2>The Glow Club</h2>
+
+                <p>Receive beauty tips, offers and new product launches.</p>
+
+                <div class="subscribe-box">
+                    <label for="newsletterEmail" class="sr-only">Your email</label>
+                    <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email" required>
+                    <button class="primary-btn" type="submit">Subscribe</button>
+                </div>
+                <p>Please enter a valid email address</p>
+
+                <p class="subscribe-note">
+                    By signing up, you agree to our
+                    <a href="policy.html">Privacy Policy.</a>
+                </p>
+            </div>
+
+            <!-- Links + Social -->
+            <div class="footer-navigation">
+
+                <!-- Explore -->
+                <div class="footer-links">
+                    <h3>Navigate</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-links">
+                    <h3>Official</h3>
+                    <a href="faq.html">FAQ</a>
+                    <a href="policy.html">Policy</a>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="footer-links">
+                    <h3>Social</h3>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                        Facebook
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 AGL Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/bag.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/products.js"></script>
+
+</body>
+</html>

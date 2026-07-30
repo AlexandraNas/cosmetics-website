@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGL | Contact</title>
+
+    <meta name="description"
+          content="Get in touch with AGL - Alexa Glow London. Contact us for enquiries, customer support and information about our beauty collections.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="shipping-banner">
+        FREE UK SHIPPING ON ORDERS OVER £40
+    </div>
+
+    <!-- header + nav -->
+    <header>
+        <nav class="navbar">
+
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="logo">
+                <span>AGL</span>
+                <small>Alexa Glow London</small>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="products.html">
+                        Shop <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html#skincare">Skincare</a></li>
+                        <li><a href="products.html#makeup">Makeup</a></li>
+                        <li><a href="products.html#haircare">Hair Care</a></li>
+                        <li><a href="products.html#tools">Beauty Tools</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-utility">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <form id="searchForm" class="search-form">
+                        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+                    </form>
+                </div>
+
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-text">Bag</span>
+                    <i class="fa-solid fa-bag-shopping cart-icon"></i>
+                    <span class="cart-count">(0)</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- the slide-out mobile menu panel -->
+        <div class="mobile-menu">
+            <button class="close-menu" aria-label="Close menu">&times;</button>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="products.html#skincare">Skincare</a>
+            <a href="products.html#makeup">Makeup</a>
+            <a href="products.html#haircare">Hair Care</a>
+            <a href="products.html#tools">Beauty Tools</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- contact hero -->
+        <section class="contact-hero">
+            <span class="section-label">CONTACT</span>
+
+            <h1>How can we help?</h1>
+
+            <p>
+                Whether you have a question about our products,
+                your order or simply want to say hello,
+                we'd love to hear from you.
+            </p>
+        </section>
+
+        <!-- contact info + form -->
+        <section class="contact-section">
+
+            <div class="contact-info">
+                <span class="section-label">GET IN TOUCH</span>
+
+                <h2>We are here to help.</h2>
+
+                <p>
+                    Feel free to reach out to us at any time. We are here to help
+                    with orders, product questions, and any feedback you may have.
+                    We'll aim to get back to you within 2 business days.
+                </p>
+
+                <!-- contact details -->
+                <div class="contact-details">
+                    <p>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:support@aglbeauty.com">support@aglbeauty.com</a>
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        London, United Kingdom
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-clock"></i>
+                        Monday - Friday | 9am - 5pm
+                    </p>
+                </div>
+            </div>
+
+            <!-- contact form -->
+            <div class="contact-form">
+                <form>
+                    <label for="contactName" class="sr-only">First and Last Name</label>
+                    <input type="text" id="contactName" name="contactName" placeholder="First and Last Name" required>
+
+                    <label for="contactEmail" class="sr-only">Email</label>
+                    <input type="email" id="contactEmail" name="contactEmail" placeholder="Email" required>
+
+                    <div class="select-wrapper">
+                        <label for="contactReason" class="sr-only">Contact Reason</label>
+                        <select id="contactReason" name="contactReason" required>
+                            <option value="" selected disabled>Contact Reason</option>
+                            <option>Order status</option>
+                            <option>Cancel or modify an order</option>
+                            <option>Returns or exchanges</option>
+                            <option>My order is missing</option>
+                            <option>My order arrived damaged</option>
+                            <option>Issue with my product</option>
+                            <option>Shipping questions</option>
+                            <option>Product questions</option>
+                            <option>Partnerships / collaborations</option>
+                            <option>Press enquiries</option>
+                            <option>Other</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+
+                    <label for="contactMessage" class="sr-only">Tell us the details</label>
+                    <textarea id="contactMessage" name="contactMessage" placeholder="Tell us the details" required></textarea>
+
+                    <button class="primary-btn" type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="brand-footer">
+        <div class="footer-top">
+
+            <!-- Newsletter -->
+            <div class="glow-club">
+                <h2>The Glow Club</h2>
+
+                <p>Receive beauty tips, offers and new product launches.</p>
+
+                <div class="subscribe-box">
+                    <label for="newsletterEmail" class="sr-only">Your email</label>
+                    <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email" required>
+                    <button class="primary-btn" type="submit">Subscribe</button>
+                </div>
+                <p>Please enter a valid email address</p>
+
+                <p class="subscribe-note">
+                    By signing up, you agree to our
+                    <a href="policy.html">Privacy Policy.</a>
+                </p>
+            </div>
+
+            <!-- Links + Social -->
+            <div class="footer-navigation">
+
+                <!-- Explore -->
+                <div class="footer-links">
+                    <h3>Navigate</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Shop</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-links">
+                    <h3>Official</h3>
+                    <a href="faq.html">FAQ</a>
+                    <a href="policy.html">Policy</a>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="footer-links">
+                    <h3>Social</h3>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                        Facebook
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                        TikTok
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 AGL Beauty. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/bag.js"></script>
+    <script src="js/products.js"></script>
+
+</body>
+</html>
