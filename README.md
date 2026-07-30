@@ -137,6 +137,14 @@ From there, use the navigation bar to move between Home, Shop, About, Contact, a
 
 This site was audited using Google Chrome Lighthouse. Before/after screenshots showing two accessibility improvements are included in the `evidence/` folder (`Problem1.png`/`Fix1.png` and `Problem2.png`/`Fix2.png`).
 
+**Problem 1 - Links relying on colour alone:** Lighthouse flagged the "Privacy Policy" link inside the newsletter's `subscribe-note` text as relying on colour to be distinguishable from the surrounding paragraph, since it only gained an underline on hover. This fails users with low vision or colour blindness who can't rely on colour contrast alone to identify it as a link.
+
+**Fix:** the link is now permanently underlined (`text-decoration:underline`), with only the colour changing on hover, so it is recognisable as a link at all times, not just on interaction.
+
+**Problem 2 - Heading elements out of order:** Lighthouse flagged that heading levels on `products.html` were not in a sequentially-descending order. The page's four category shortcut cards (Skincare, Makeup, Hair Care, Beauty Tools) used `<h3>` immediately after the page's `<h1>`, skipping `<h2>` entirely. Skipped heading levels break the logical document outline that screen reader users rely on to navigate a page.
+
+**Fix:** the four category card headings were changed from `<h3>` to `<h2>`, so the heading structure now flows correctly (`h1` → `h2` → `h3`) with no skipped levels. The CSS selector was updated to match, so there is no visual change.
+
 ## Performance Optimization
 
 A Lighthouse audit of `cart.html` returned a Performance score of 79, with the biggest flagged issue being **render-blocking requests** (an estimated 2.77s saving) alongside a related **font display** warning.

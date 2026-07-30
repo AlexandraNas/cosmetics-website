@@ -1055,12 +1055,12 @@ nav a:hover{
 
 .subscribe-note a{
     color:var(--brand-dark);
-    text-decoration:none;
+    text-decoration:underline;
     transition:.3s ease;
 }
 
 .subscribe-note a:hover{
-    text-decoration:underline;
+    color:var(--brand);
 }
 
 .footer-navigation{
@@ -2849,7 +2849,7 @@ section{
     box-shadow:0 25px 50px rgba(43,37,33,.12);
 }
 
-.category-card h3{
+.category-card h2{
     font-family:"Cormorant Garamond", serif;
     font-size:1.7rem;
     font-weight:500;
@@ -2892,7 +2892,7 @@ section{
         gap:35px;
     }
 
-    .category-card h3{
+    .category-card h2{
         font-size:2.4rem;
     }
 
