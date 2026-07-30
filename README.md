@@ -2,10 +2,18 @@
 
 A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript (DOM manipulation only) as the summative assignment for **CPU4104**.
 
+## Preview
+
+Home page shown at desktop, tablet, and mobile widths:
+
+| Desktop | Tablet | Mobile |
+|---|---|---|
+| ![Home page - desktop view](screenshots/home-desktop.png) | ![Home page - tablet view](screenshots/home-tablet.png) | ![Home page - mobile view](screenshots/home-mobile.png) |
+
 ## Student Information
 
-- **Name:** [Alexandra Nastase]
-- **Student ID:** []
+- **Name:** [Your Name]
+- **Student ID:** [Your Student ID]
 - **Module:** CPU4104
 - **GitHub Repository:** [Add your repo link here]
 
@@ -95,6 +103,11 @@ AGL-Beauty/
 │   ├── Problem1.png / Fix1.png
 │   └── Problem2.png / Fix2.png
 │
+├── screenshots/          # README preview images (desktop/tablet/mobile)
+│   ├── home-desktop.png
+│   ├── home-tablet.png
+│   └── home-mobile.png
+│
 └── README.md
 ```
 
@@ -123,6 +136,18 @@ From there, use the navigation bar to move between Home, Shop, About, Contact, a
 ## Accessibility Testing
 
 This site was audited using Google Chrome Lighthouse. Before/after screenshots showing two accessibility improvements are included in the `evidence/` folder (`Problem1.png`/`Fix1.png` and `Problem2.png`/`Fix2.png`).
+
+## Performance Optimization
+
+A Lighthouse audit of `cart.html` returned a Performance score of 79, with the biggest flagged issue being **render-blocking requests** (an estimated 2.77s saving) alongside a related **font display** warning.
+
+**Problem:** the site's fonts (Cormorant Garamond and Poppins) were loaded via an `@import` rule inside `style.css`. `@import` forces the browser to fully fetch and parse the main stylesheet before it even discovers the font request, creating a slow, serial chain (HTML → style.css → font CSS → font files) instead of everything loading in parallel. The Font Awesome icon stylesheet was also loaded as a normal blocking `<link>`, delaying first paint even though only a handful of icons are used on each page.
+
+**Solution:** in every page's `<head>`:
+- The Google Fonts `@import` was removed from `style.css` and replaced with `<link rel="preconnect">` tags (for `fonts.googleapis.com` and `fonts.gstatic.com`) plus a direct `<link rel="stylesheet">` to the font CSS, so the browser discovers and fetches fonts immediately instead of waiting on `style.css`.
+- The Font Awesome stylesheet was changed to load non-blocking, using `media="print" onload="this.media='all'"` (with a `<noscript>` fallback for accessibility), so it no longer holds up the page's first render.
+
+These changes only affect load order, not appearance, and directly target the render-blocking and font-display audits from Lighthouse.
 
 ## Academic Integrity
 

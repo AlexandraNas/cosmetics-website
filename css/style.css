@@ -1,9 +1,8 @@
 /* Main stylesheet - beauty site
  MOBILE-FIRST version. */
-/* fonts */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-
+/* fonts are now loaded via <link> tags in each HTML head (with preconnect)
+   instead of @import here - @import blocks CSS parsing and delays font
+   discovery, which was flagged by Lighthouse as a render-blocking issue */
 
 /* colors / variables */
 
