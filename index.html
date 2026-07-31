@@ -61,8 +61,11 @@
 
             <div class="nav-utility">
                 <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <button type="button" class="search-icon" id="searchIcon" aria-label="Toggle search" aria-expanded="false">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </button>
                     <form id="searchForm" class="search-form">
+                        <label for="searchInput" class="sr-only">Search products</label>
                         <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
                     </form>
                 </div>
@@ -114,6 +117,8 @@
         </section>
 
         <!-- category shortcut cards -->
+        <h2 class="section-title">Shop by Collection</h2>
+
         <section class="category-cards">
 
             <a href="products.html#skincare" class="category-card">
@@ -157,6 +162,7 @@
             <div class="product-grid">
 
                 <div class="card">
+                    <span class="new-badge">New</span>
                     <img src="media/images/VitC.png"
                          alt="AGL Vitamin C Brightening Serum"
                          class="product-image"
@@ -177,6 +183,7 @@
                 </div>
 
                 <div class="card">
+                    <span class="new-badge">New</span>
                     <img src="media/images/AcidHyaluronic.png"
                          alt="AGL Hyaluronic Acid Moisturiser"
                          class="product-image"
@@ -207,13 +214,10 @@
 
                     <div class="shade-swatches">
                         <span class="foundation nude"
-                              title="Light Nude"
                               data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
                         <span class="foundation beige"
-                              title="Natural Beige"
                               data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
                         <span class="foundation tan"
-                              title="Warm Tan"
                               data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
                     </div>
 
@@ -240,16 +244,12 @@
 
                     <div class="lipstick-swatches">
                         <span class="lip soft-rose-nude"
-                              title="Soft Rose Nude"
                               data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
                         <span class="lip rosewood"
-                              title="Rosewood"
                               data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
                         <span class="lip velvet-ruby"
-                              title="Velvet Ruby"
                               data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
                         <span class="lip berry-nude"
-                              title="Berry Nude"
                               data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
                     </div>
 
@@ -510,13 +510,10 @@
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
                     <span class="foundation nude"
-                          title="Light Nude"
                           data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
                     <span class="foundation beige"
-                          title="Natural Beige"
                           data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
                     <span class="foundation tan"
-                          title="Warm Tan"
                           data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
                 </div>
 
@@ -572,16 +569,12 @@
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
                     <span class="lip soft-rose-nude"
-                          title="Soft Rose Nude"
                           data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
                     <span class="lip rosewood"
-                          title="Rosewood"
                           data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
                     <span class="lip velvet-ruby"
-                          title="Velvet Ruby"
                           data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
                     <span class="lip berry-nude"
-                          title="Berry Nude"
                           data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
                 </div>
 

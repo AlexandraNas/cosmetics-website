@@ -61,8 +61,11 @@
 
             <div class="nav-utility">
                 <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <button type="button" class="search-icon" id="searchIcon" aria-label="Toggle search" aria-expanded="false">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </button>
                     <form id="searchForm" class="search-form">
+                        <label for="searchInput" class="sr-only">Search products</label>
                         <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
                     </form>
                 </div>
@@ -95,11 +98,24 @@
 
         <!-- shop hero -->
         <section class="shop-hero">
-            <h1>Shop Our Collection</h1>
-            <p>Beauty essentials crafted for every routine.</p>
+            <h1>Discover Your Routine</h1>
+            <p>Skincare, makeup, hair care and beauty tools designed to fit effortlessly into your day.</p>
         </section>
 
+        <!-- category filter buttons -->
+        <div class="shop-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="skincare">Skincare</button>
+            <button class="filter-btn" data-filter="makeup">Makeup</button>
+            <button class="filter-btn" data-filter="haircare">Hair Care</button>
+            <button class="filter-btn" data-filter="tools">Beauty Tools</button>
+        </div>
+
         <section class="shop-products">
+
+            <p id="noResultsMessage" class="no-results-message">
+                No products found. Try a different category or search term.
+            </p>
 
             <!-- skincare collection -->
             <section id="skincare" class="product-section">
@@ -109,6 +125,7 @@
 
                     <!-- Vitamin C Serum -->
                     <div class="shop-card" data-category="skincare">
+                        <span class="new-badge">New</span>
                         <img src="media/images/VitC.png"
                              alt="AGL Vitamin C Brightening Serum"
                              class="shop-product-image"
@@ -127,7 +144,8 @@
                     </div>
 
                     <!-- Hyaluronic Moisturiser -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="skincare">
+                        <span class="new-badge">New</span>
                         <img src="media/images/AcidHyaluronic.png"
                              alt="AGL Hyaluronic Acid Moisturiser"
                              class="shop-product-image"
@@ -146,7 +164,7 @@
                     </div>
 
                     <!-- Overnight Repair Cream -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="skincare">
                         <img src="media/images/Cream.png"
                              alt="AGL Overnight Repair Cream"
                              class="shop-product-image"
@@ -160,6 +178,25 @@
                                 data-name="Overnight Repair Cream"
                                 data-price="24.99"
                                 data-image="media/images/Cream.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- Gentle Foaming Cleanser -->
+                    <div class="shop-card" data-category="skincare">
+                        <img src="media/images/Cleanser.png"
+                             alt="AGL Gentle Foaming Cleanser"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="cleanserImage">
+                        <h3>AGL Gentle Foaming Cleanser</h3>
+                        <span class="sr-only">Category: Skincare</span>
+                        <strong>£16.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="foaming-cleanser"
+                                data-name="Gentle Foaming Cleanser"
+                                data-price="16.99"
+                                data-image="media/images/Cleanser.png">
                             Add to Bag
                         </button>
                     </div>
@@ -186,13 +223,10 @@
 
                         <div class="shade-swatches">
                             <span class="foundation nude"
-                                  title="Light Nude"
                                   data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
                             <span class="foundation beige"
-                                  title="Natural Beige"
                                   data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
                             <span class="foundation tan"
-                                  title="Warm Tan"
                                   data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
                         </div>
 
@@ -206,7 +240,7 @@
                     </div>
 
                     <!-- Velvet Matte Lipstick -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="makeup">
                         <img src="media/images/02SoftRoseNude.png"
                              alt="AGL Velvet Matte Lipstick"
                              class="shop-product-image"
@@ -218,16 +252,12 @@
 
                         <div class="lipstick-swatches">
                             <span class="lip soft-rose-nude"
-                                  title="Soft Rose Nude"
                                   data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
                             <span class="lip rosewood"
-                                  title="Rosewood"
                                   data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
                             <span class="lip velvet-ruby"
-                                  title="Velvet Ruby"
                                   data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
                             <span class="lip berry-nude"
-                                  title="Berry Nude"
                                   data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
                         </div>
 
@@ -241,7 +271,7 @@
                     </div>
 
                     <!-- Waterproof Mascara -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="makeup">
                         <img src="media/images/MascaraBlack.png"
                              alt="AGL Waterproof Mascara"
                              class="shop-product-image"
@@ -253,10 +283,8 @@
 
                         <div class="shade-swatches">
                             <span class="shade mascara-black"
-                                  title="Black"
                                   data-image="media/images/MascaraBlack.png" data-shade="Black"></span>
                             <span class="shade mascara-brown"
-                                  title="Brown"
                                   data-image="media/images/MascaraBrown.png" data-shade="Brown"></span>
                         </div>
 
@@ -265,6 +293,25 @@
                                 data-name="Waterproof Mascara"
                                 data-price="19.99"
                                 data-image="media/images/MascaraBlack.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- Eyeshadow Palette -->
+                    <div class="shop-card" data-category="makeup">
+                        <img src="media/images/Palette.png"
+                             alt="AGL Everyday Eyeshadow Palette"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="paletteImage">
+                        <h3>AGL Everyday Eyeshadow Palette</h3>
+                        <span class="sr-only">Category: Makeup</span>
+                        <strong>£29.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="eyeshadow-palette"
+                                data-name="Everyday Eyeshadow Palette"
+                                data-price="29.99"
+                                data-image="media/images/Palette.png">
                             Add to Bag
                         </button>
                     </div>
@@ -298,7 +345,7 @@
                     </div>
 
                     <!-- Repair Hair Mask -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="haircare">
                         <img src="media/images/Hairmask.png"
                              alt="AGL Repair Hair Mask"
                              class="shop-product-image"
@@ -317,7 +364,7 @@
                     </div>
 
                     <!-- Scalp Massage Brush -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="haircare">
                         <img src="media/images/HairBrush.png"
                              alt="AGL Scalp Massage Brush"
                              class="shop-product-image"
@@ -331,6 +378,25 @@
                                 data-name="Scalp Massage Brush"
                                 data-price="9.99"
                                 data-image="media/images/HairBrush.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- Gentle Nourishing Shampoo -->
+                    <div class="shop-card" data-category="haircare">
+                        <img src="media/images/Shampoo.png"
+                             alt="AGL Gentle Nourishing Shampoo"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="shampooImage">
+                        <h3>AGL Gentle Nourishing Shampoo</h3>
+                        <span class="sr-only">Category: Hair Care</span>
+                        <strong>£13.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="nourishing-shampoo"
+                                data-name="Gentle Nourishing Shampoo"
+                                data-price="13.99"
+                                data-image="media/images/Shampoo.png">
                             Add to Bag
                         </button>
                     </div>
@@ -364,7 +430,7 @@
                     </div>
 
                     <!-- Rose Quartz Face Roller -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="tools">
                         <img src="media/images/FaceRoller.png"
                              alt="AGL Rose Quartz Face Roller"
                              class="shop-product-image"
@@ -383,7 +449,7 @@
                     </div>
 
                     <!-- LED Vanity Mirror -->
-                    <div class="shop-card">
+                    <div class="shop-card" data-category="tools">
                         <img src="media/images/Mirror.png"
                              alt="AGL LED Vanity Mirror"
                              class="shop-product-image"
@@ -397,6 +463,25 @@
                                 data-name="LED Vanity Mirror"
                                 data-price="39.99"
                                 data-image="media/images/Mirror.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- Hair Straightener -->
+                    <div class="shop-card" data-category="tools">
+                        <img src="media/images/Straightener.png"
+                             alt="AGL Hair Straightener"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="straightenerImage">
+                        <h3>AGL Hair Straightener</h3>
+                        <span class="sr-only">Category: Beauty Tools</span>
+                        <strong>£45.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="hair-straightener"
+                                data-name="Hair Straightener"
+                                data-price="45.99"
+                                data-image="media/images/Straightener.png">
                             Add to Bag
                         </button>
                     </div>
@@ -649,13 +734,10 @@
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
                     <span class="foundation nude"
-                          title="Light Nude"
                           data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
                     <span class="foundation beige"
-                          title="Natural Beige"
                           data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
                     <span class="foundation tan"
-                          title="Warm Tan"
                           data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
                 </div>
 
@@ -711,16 +793,12 @@
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
                     <span class="lip soft-rose-nude"
-                          title="Soft Rose Nude"
                           data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
                     <span class="lip rosewood"
-                          title="Rosewood"
                           data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
                     <span class="lip velvet-ruby"
-                          title="Velvet Ruby"
                           data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
                     <span class="lip berry-nude"
-                          title="Berry Nude"
                           data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
                 </div>
 
@@ -776,10 +854,8 @@
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
                     <span class="shade mascara-black"
-                          title="Black"
                           data-image="media/images/MascaraBlack.png" data-shade="Black"></span>
                     <span class="shade mascara-brown"
-                          title="Brown"
                           data-image="media/images/MascaraBrown.png" data-shade="Brown"></span>
                 </div>
 
@@ -1058,6 +1134,185 @@
                         data-name="LED Vanity Mirror"
                         data-price="39.99"
                         data-image="media/images/Mirror.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gentle Foaming Cleanser Modal -->
+    <div id="cleanserModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Cleanser.png" alt="AGL Gentle Foaming Cleanser" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL SKINCARE</p>
+                <h2>Gentle Foaming Cleanser</h2>
+                <p class="modal-price">£16.99</p>
+
+                <p class="modal-description">
+                    A gentle, sulphate-free foaming cleanser that lifts away impurities
+                    and makeup without stripping the skin, leaving it feeling soft,
+                    balanced and refreshed.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Removes makeup and daily impurities</p>
+                    <p>✓ Sulphate-free, gentle formula</p>
+                    <p>✓ Leaves skin feeling soft and balanced</p>
+                    <p>✓ Suitable for all skin types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Aloe Vera</span>
+                    <span>Chamomile Extract</span>
+                    <span>Glycerin</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="foaming-cleanser"
+                        data-name="Gentle Foaming Cleanser"
+                        data-price="16.99"
+                        data-image="media/images/Cleanser.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Everyday Eyeshadow Palette Modal -->
+    <div id="paletteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Palette.png" alt="AGL Everyday Eyeshadow Palette" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL MAKEUP</p>
+                <h2>Everyday Eyeshadow Palette</h2>
+                <p class="modal-price">£29.99</p>
+
+                <p class="modal-description">
+                    A versatile eyeshadow palette featuring a mix of matte and shimmer
+                    shades that blend effortlessly, taking you from a natural daytime
+                    look to a deeper evening look.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Highly pigmented matte and shimmer shades</p>
+                    <p>✓ Blends effortlessly</p>
+                    <p>✓ Long-lasting wear</p>
+                    <p>✓ Suitable for all skin tones</p>
+                </div>
+
+                <h4 class="ingredients-title">Product Features</h4>
+                <div class="ingredient-tags">
+                    <span>12 Shades</span>
+                    <span>Mirror Included</span>
+                    <span>Vegan Formula</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="eyeshadow-palette"
+                        data-name="Everyday Eyeshadow Palette"
+                        data-price="29.99"
+                        data-image="media/images/Palette.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gentle Nourishing Shampoo Modal -->
+    <div id="shampooModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Shampoo.png" alt="AGL Gentle Nourishing Shampoo" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL HAIRCARE</p>
+                <h2>Gentle Nourishing Shampoo</h2>
+                <p class="modal-price">£13.99</p>
+
+                <p class="modal-description">
+                    A gentle, nourishing shampoo that cleanses without stripping natural
+                    oils, leaving hair soft, hydrated and full of healthy shine.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Gently cleanses without stripping moisture</p>
+                    <p>✓ Nourishes and hydrates hair</p>
+                    <p>✓ Adds healthy shine</p>
+                    <p>✓ Suitable for all hair types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Argan Oil</span>
+                    <span>Vitamin E</span>
+                    <span>Sulphate-Free</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="nourishing-shampoo"
+                        data-name="Gentle Nourishing Shampoo"
+                        data-price="13.99"
+                        data-image="media/images/Shampoo.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hair Straightener Modal -->
+    <div id="straightenerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Straightener.png" alt="AGL Hair Straightener" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL BEAUTY TOOLS</p>
+                <h2>Hair Straightener</h2>
+                <p class="modal-price">£45.99</p>
+
+                <p class="modal-description">
+                    A ceramic-plated hair straightener with adjustable heat settings,
+                    designed to deliver smooth, sleek results while minimising heat
+                    damage.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Ceramic plates for smooth, even heat</p>
+                    <p>✓ Adjustable temperature settings</p>
+                    <p>✓ Fast heat-up time</p>
+                    <p>✓ Suitable for all hair types</p>
+                </div>
+
+                <h4 class="ingredients-title">Product Features</h4>
+                <div class="ingredient-tags">
+                    <span>Ceramic Plates</span>
+                    <span>Adjustable Heat</span>
+                    <span>Fast Heat-Up</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="hair-straightener"
+                        data-name="Hair Straightener"
+                        data-price="45.99"
+                        data-image="media/images/Straightener.png">
                     Add to Bag
                 </button>
             </div>

@@ -70,6 +70,7 @@ a[href^="tel:"]:hover{
 
 /* required form fields get a subtle left accent so users can
    see what needs completing before they submit */
+
 input[required],
 select[required],
 textarea[required]{
@@ -454,6 +455,12 @@ nav a:hover{
 }
 
 .search-icon{
+    display:inline-flex;
+    align-items:center;
+    background:none;
+    border:none;
+    padding:0;
+    line-height:1;
     font-size:17px;
     color:var(--brand-dark);
     cursor:pointer;
@@ -761,7 +768,7 @@ nav a:hover{
 /* products section (homepage grid) */
 
 .products{
-    padding:70px 5%;
+    padding:30px 5% 70px;
     text-align:center;
 }
 
@@ -782,10 +789,13 @@ nav a:hover{
 
 @media (min-width:769px){
 
-    .products,
     .values,
     .newsletter{
         padding:70px 5%;
+    }
+
+    .products{
+        padding:40px 5% 70px;
     }
 
     .products h2,
@@ -824,6 +834,21 @@ nav a:hover{
     padding:14px;
     box-shadow:0 8px 25px rgba(0,0,0,.04);
     transition:.45s ease;
+}
+
+.new-badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    z-index:2;
+    background:var(--brand-dark);
+    color:#fff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:5px 14px;
+    border-radius:30px;
 }
 
 .card:hover{
@@ -886,8 +911,6 @@ nav a:hover{
         padding:30px;
     }
 
-    /* restore the larger, original sizing once the grid has
-       moved past the 2-per-row mobile layout below */
     .product-image{
         height:260px;
         margin-bottom:18px;
@@ -913,7 +936,6 @@ nav a:hover{
     }
 
 }
-
 
 /* values section */
 
@@ -1281,18 +1303,11 @@ nav a:hover{
         flex-basis:0%;
     }
 
-    /* let the newsletter blurb sit on one line at desktop width,
-       instead of wrapping under the narrower 420px column -
-       :first-of-type keeps this off the shorter lines below it
-       ("Please enter a valid email address" / the policy note) */
     .glow-club p:first-of-type{
         max-width:none;
         white-space:nowrap;
     }
 
-    /* the "Your email" + Subscribe pill doesn't need the full
-       560px it uses on smaller screens once there's this much
-       room either side of it */
     .subscribe-box{
         width:380px;
     }
@@ -2241,7 +2256,6 @@ section{
 
 }
 
-
 /* cart page */
 
 .cart-hero{
@@ -2495,41 +2509,20 @@ section{
 }
 
 
-/* shade swatches (foundation / lipstick / mascara / palette)
-   these are <button> elements so they're keyboard-focusable -
-   the reset rules below strip default button styling so they
-   still look like plain colour circles */
-
-.foundation,
-.lip,
-.shade{
-    padding:0;
-    font:inherit;
-    -webkit-appearance:none;
-    appearance:none;
-}
+/* shade swatches (foundation / lipstick / mascara / palette) */
 
 .foundation{
-    width:18px;
-    height:18px;
+    width:22px;
+    height:22px;
     border-radius:50%;
     border:1px solid #ddd;
     cursor:pointer;
-    transition:transform .3s ease, box-shadow .2s ease;
+    transition:transform .3s ease;
     display:inline-block;
 }
 
 .foundation:hover{
     transform:scale(1.2);
-}
-
-/* highlighted ring on whichever shade is currently selected -
-   box-shadow doesn't affect layout size, so this works the same
-   on mobile and desktop without needing a media query */
-.foundation.active,
-.lip.active,
-.shade.active{
-    box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--brand-dark);
 }
 
 .foundation.nude{
@@ -2554,11 +2547,11 @@ section{
 }
 
 .lip{
-    width:18px;
-    height:18px;
+    width:22px;
+    height:22px;
     border-radius:50%;
     border:1px solid #ddd;
-    transition:transform .3s ease, box-shadow .2s ease;
+    transition:transform .3s ease;
     cursor:pointer;
 }
 
@@ -2617,17 +2610,34 @@ section{
 }
 
 .shade{
-    width:18px;
-    height:18px;
+    width:22px;
+    height:22px;
     border-radius:50%;
     border:1px solid #ddd;
     cursor:pointer;
     display:inline-block;
-    transition:transform .3s ease, box-shadow .2s ease;
+    transition:transform .3s ease;
 }
 
 .shade:hover{
     transform:scale(1.2);
+}
+
+/* ring shown on whichever swatch is currently selected */
+.foundation.active,
+.lip.active,
+.shade.active{
+    box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--brand-dark);
+}
+
+/* live text label showing the currently selected shade name */
+.shade-label{
+    margin:8px 0 0;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.3px;
+    color:var(--brand-dark);
+    text-align:center;
 }
 
 .palette-label{
@@ -2713,6 +2723,16 @@ section{
     color:white;
 }
 
+.no-results-message{
+    display:none;
+    max-width:500px;
+    margin:20px auto 60px;
+    padding:0 20px;
+    text-align:center;
+    font-size:16px;
+    color:var(--text-light);
+}
+
 .shop-product-image{
     width:100%;
     height:140px;
@@ -2725,14 +2745,6 @@ section{
 
 .shop-product-image:hover{
     transform:scale(1.04);
-}
-
-/* these images are keyboard-focusable (they open the product modal),
-   so give them a visible focus ring when tabbed to */
-.product-image:focus-visible,
-.shop-product-image:focus-visible{
-    outline:3px solid var(--brand-dark);
-    outline-offset:2px;
 }
 
 .shop-card{
@@ -2855,7 +2867,7 @@ section{
     grid-template-columns:1fr;
     gap:25px;
     max-width:1200px;
-    margin:70px auto;
+    margin:70px auto 30px;
     padding:0 20px;
 }
 
@@ -2944,30 +2956,6 @@ section{
     text-align:center;
     margin:50px 0 30px;
     letter-spacing:1px;
-}
-
-/* shown when a search matches no products */
-.no-results-message{
-    text-align:center;
-    color:var(--text-muted);
-    font-size:16px;
-    padding:60px 20px;
-}
-
-/* "New" badge on standout products */
-.new-badge{
-    position:absolute;
-    top:12px;
-    left:12px;
-    background:var(--brand-dark);
-    color:#fff;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    padding:4px 10px;
-    border-radius:20px;
-    z-index:2;
 }
 
 @media (min-width:769px){
@@ -3202,8 +3190,7 @@ section{
 
 }
 
-/* short-viewport fix (nest hub etc landscape tablets) -
-   keeps the image from collapsing on short/wide viewports */
+/* short-viewport fix (nest hub etc landscape tablets) */
 @media (max-height: 800px){
 
     .modal-content{

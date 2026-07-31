@@ -18,14 +18,12 @@ function changeFoundation(image, shade) {
         homeButton.dataset.shade = shade;
     }
 
-
+    
     const modalButton = document.querySelector("#foundationModal .add-to-bag");
     if (modalButton) {
         modalButton.dataset.image = image;
         modalButton.dataset.shade = shade;
     }
-
-    setActiveSwatch("foundation", shade);
 
 }
 
@@ -54,14 +52,12 @@ function changeLipstick(image, shade) {
     }
 
     // Products page modal Add to Bag button
-
+   
     const modalButton = document.querySelector("#lipstickModal .add-to-bag");
     if (modalButton) {
         modalButton.dataset.image = image;
         modalButton.dataset.shade = shade;
     }
-
-    setActiveSwatch("lip", shade);
 
 }
 
@@ -69,8 +65,15 @@ function changeLipstick(image, shade) {
 
 function changeMascara(image, shade){
 
-    document.getElementById("mascaraImage").src = image;
-    document.getElementById("mascaraModalImage").src = image;
+    const cardImage = document.getElementById("mascaraImage");
+    const modalImage = document.getElementById("mascaraModalImage");
+
+    if (cardImage) {
+        cardImage.src = image;
+    }
+    if (modalImage) {
+        modalImage.src = image;
+    }
 
     // Update modal button
     const modalButton = document.querySelector("#mascaraModal .add-to-bag");
@@ -82,23 +85,44 @@ function changeMascara(image, shade){
     cardButton.dataset.image = image;
     cardButton.dataset.shade = shade;
 
-    setActiveSwatch("shade", shade);
-
-}
-
-function setActiveSwatch(className, shade){
-    document.querySelectorAll("." + className).forEach(swatch => {
-        swatch.classList.toggle("active", swatch.dataset.shade === shade);
-    });
 }
 
 // SHADE SWATCH CLICKS
+
+function markSwatchActive(swatch) {
+    const group = swatch.parentElement;
+    if (!group) return;
+    group.querySelectorAll(".foundation, .lip, .shade").forEach(el => {
+        el.classList.remove("active");
+    });
+    swatch.classList.add("active");
+
+    const label = group.nextElementSibling;
+    if (label && label.classList.contains("shade-label")) {
+        label.textContent = swatch.dataset.shade || "";
+    }
+}
+
+// Adds a small text label under every swatch group
+function initShadeLabels() {
+    document.querySelectorAll(".shade-swatches, .lipstick-swatches, .modal-swatches").forEach(group => {
+        const firstSwatch = group.querySelector(".foundation, .lip, .shade");
+        if (!firstSwatch) return;
+
+        const label = document.createElement("p");
+        label.className = "shade-label";
+        label.textContent = firstSwatch.dataset.shade || "";
+        group.insertAdjacentElement("afterend", label);
+    });
+}
+initShadeLabels();
 
 document.querySelectorAll(".foundation").forEach(swatch => {
 
     swatch.addEventListener("click", () => {
 
         changeFoundation(swatch.dataset.image, swatch.dataset.shade);
+        markSwatchActive(swatch);
 
     });
 
@@ -109,6 +133,7 @@ document.querySelectorAll(".lip").forEach(swatch => {
     swatch.addEventListener("click", () => {
 
         changeLipstick(swatch.dataset.image, swatch.dataset.shade);
+        markSwatchActive(swatch);
 
     });
 
@@ -119,22 +144,25 @@ document.querySelectorAll(".shade").forEach(swatch => {
     swatch.addEventListener("click", () => {
 
         changeMascara(swatch.dataset.image, swatch.dataset.shade);
+        markSwatchActive(swatch);
 
     });
 
 });
 
-// highlight the shade that matches the default image already shown
-setActiveSwatch("foundation", "Light Nude");
-setActiveSwatch("lip", "Soft Rose Nude");
-setActiveSwatch("shade", "Black");
+// The first swatch in each group matches the image shown by default
+
+document.querySelectorAll(".shade-swatches, .lipstick-swatches, .modal-swatches").forEach(group => {
+    const firstSwatch = group.querySelector(".foundation, .lip, .shade");
+    if (firstSwatch) firstSwatch.classList.add("active");
+});
 
 
-// PRODUCT FILTER
+// PRODUCT FILTER + SEARCH
 
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-const productCards = document.querySelectorAll(".shop-card");
+let activeCategory = "all";
 
 filterButtons.forEach(button => {
 
@@ -146,24 +174,9 @@ filterButtons.forEach(button => {
 
         button.classList.add("active");
 
-        const filter = button.dataset.filter;
+        activeCategory = button.dataset.filter;
 
-        productCards.forEach(card => {
-
-            if (
-                filter === "all" ||
-                card.dataset.category === filter
-            ) {
-
-                card.style.display = "block";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
+        applyFilters();
 
     });
 
@@ -171,93 +184,34 @@ filterButtons.forEach(button => {
 
 // MODAL SECTION
 
-const vitaminImage = document.getElementById("vitaminImage");
-const vitaminModal = document.getElementById("vitaminModal");
 const closeButtons = document.querySelectorAll(".close-modal");
+const allModals = document.querySelectorAll(".modal");
 
-const moisturiserImage = document.getElementById("moisturiserImage");
-const moisturiserModal = document.getElementById("moisturiserModal");
-const repairCreamImage = document.getElementById("repairCreamImage");
-const repairCreamModal = document.getElementById("repairCreamModal");
-const foundationImage = document.getElementById("foundationImage");
-const foundationModal = document.getElementById("foundationModal");
-const lipstickImage = document.getElementById("lipstickImage");
-const lipstickModal = document.getElementById("lipstickModal");
-const mascaraImage = document.getElementById("mascaraImage");
-const mascaraModal = document.getElementById("mascaraModal");
-const arganOilImage = document.getElementById("arganOilImage");
-const arganOilModal = document.getElementById("arganOilModal");
-const hairMaskImage = document.getElementById("hairMaskImage");
-const hairMaskModal = document.getElementById("hairMaskModal");
-const scalpBrushImage = document.getElementById("scalpBrushImage");
-const scalpBrushModal = document.getElementById("scalpBrushModal");
-const brushSetImage = document.getElementById("brushSetImage");
-const brushSetModal = document.getElementById("brushSetModal");
-const faceRollerImage = document.getElementById("faceRollerImage");
-const faceRollerModal = document.getElementById("faceRollerModal");
-const mirrorImage = document.getElementById("mirrorImage");
-const mirrorModal = document.getElementById("mirrorModal");
+document.querySelectorAll('img[id$="Image"]').forEach(function (image) {
 
-// each product's trigger image + the modal it opens, looped over
-// instead of 12 near-identical blocks - also means keyboard support
-// (Enter/Space) and Escape-to-close only need to be written once
-const modalPairs = [
-    [vitaminImage, vitaminModal],
-    [moisturiserImage, moisturiserModal],
-    [repairCreamImage, repairCreamModal],
-    [foundationImage, foundationModal],
-    [lipstickImage, lipstickModal],
-    [mascaraImage, mascaraModal],
-    [arganOilImage, arganOilModal],
-    [hairMaskImage, hairMaskModal],
-    [scalpBrushImage, scalpBrushModal],
-    [brushSetImage, brushSetModal],
-    [faceRollerImage, faceRollerModal],
-    [mirrorImage, mirrorModal]
-];
-
-function openModal(modal){
+    const modal = document.getElementById(image.id.replace(/Image$/, "Modal"));
     if (!modal) return;
-    modal.style.display = "flex";
-    const closeBtn = modal.querySelector(".close-modal");
-    if (closeBtn) closeBtn.focus();
-}
 
-function closeModal(modal){
-    if (modal) modal.style.display = "none";
-}
-
-function closeAllModals(){
-    modalPairs.forEach(([, modal]) => closeModal(modal));
-}
-
-modalPairs.forEach(([trigger, modal]) => {
-
-    if (!trigger || !modal) return;
-
-    trigger.addEventListener("click", () => openModal(modal));
-
-    trigger.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            openModal(modal);
-        }
+    image.addEventListener("click", function () {
+        modal.style.display = "flex";
     });
 
 });
 
 closeButtons.forEach(function (button) {
-    button.addEventListener("click", closeAllModals);
-});
-
-window.addEventListener("click", function (event) {
-    modalPairs.forEach(([, modal]) => {
-        if (event.target === modal) closeModal(modal);
+    button.addEventListener("click", function () {
+        allModals.forEach(function (modal) {
+            modal.style.display = "none";
+        });
     });
 });
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAllModals();
+window.addEventListener("click", function (event) {
+    allModals.forEach(function (modal) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });
 
 
@@ -271,35 +225,42 @@ const shopCards = document.querySelectorAll(".shop-card");
 
 if (searchIcon) {
     searchIcon.addEventListener("click", () => {
-        searchForm.classList.toggle("active");
-        if (searchForm.classList.contains("active")) {
+        const isActive = searchForm.classList.toggle("active");
+        searchIcon.setAttribute("aria-expanded", isActive ? "true" : "false");
+        if (isActive) {
             searchInput.focus();
         }
     });
 }
-function filterProducts(query) {
-    const term = query.trim().toLowerCase();
+
+// Applies the active category filter AND the current search term together
+
+function applyFilters() {
+    const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
     const productSections = document.querySelectorAll(".product-section");
-    let anyVisibleOverall = false;
+    let anyResultsVisible = false;
 
     productSections.forEach(section => {
         const cardsInSection = section.querySelectorAll(".shop-card");
-        let anyVisible = false;
+        let anyVisibleInSection = false;
 
         cardsInSection.forEach(card => {
             const title = card.querySelector("h3").textContent.toLowerCase();
-            const matches = title.includes(term);
-            card.style.display = matches ? "block" : "none";
-            if (matches) anyVisible = true;
+            const matchesSearch = term === "" || title.includes(term);
+            const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+            const show = matchesSearch && matchesCategory;
+
+            card.style.display = show ? "block" : "none";
+            if (show) anyVisibleInSection = true;
         });
 
-        section.style.display = anyVisible ? "block" : "none";
-        if (anyVisible) anyVisibleOverall = true;
+        section.style.display = anyVisibleInSection ? "block" : "none";
+        if (anyVisibleInSection) anyResultsVisible = true;
     });
 
-    const noResults = document.getElementById("noResultsMessage");
-    if (noResults) {
-        noResults.style.display = anyVisibleOverall ? "none" : "block";
+    const noResultsMessage = document.getElementById("noResultsMessage");
+    if (noResultsMessage) {
+        noResultsMessage.style.display = anyResultsVisible ? "none" : "block";
     }
 }
 
@@ -313,13 +274,12 @@ function scrollToResults() {
 if (searchForm) {
     searchForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const query = searchInput.value;
 
         if (shopCards.length > 0) {
-            filterProducts(query);
+            applyFilters();
             scrollToResults();
         } else {
-            window.location.href = "products.html?search=" + encodeURIComponent(query);
+            window.location.href = "products.html?search=" + encodeURIComponent(searchInput.value);
         }
     });
 }
@@ -327,7 +287,7 @@ if (searchForm) {
 if (shopCards.length > 0) {
     if (searchInput) {
         searchInput.addEventListener("input", () => {
-            filterProducts(searchInput.value);
+            applyFilters();
         });
     }
 
@@ -337,7 +297,7 @@ if (shopCards.length > 0) {
     if (queryParam) {
         searchInput.value = queryParam;
         searchForm.classList.add("active");
-        filterProducts(queryParam);
+        applyFilters();
         scrollToResults();
     }
 }
@@ -379,12 +339,10 @@ if (menuButton && mobileMenu && closeButton) {
 
     menuButton.addEventListener("click", () => {
         mobileMenu.classList.add("active");
-        menuButton.setAttribute("aria-expanded", "true");
     });
 
     closeButton.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
-        menuButton.setAttribute("aria-expanded", "false");
     });
 
 }
@@ -393,7 +351,6 @@ const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
 mobileMenuLinks.forEach(link => {
     link.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
-        if (menuButton) menuButton.setAttribute("aria-expanded", "false");
     });
 });
 

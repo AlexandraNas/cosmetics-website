@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar">
 
-            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Open navigation menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -61,8 +61,11 @@
 
             <div class="nav-utility">
                 <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i>
+                    <button type="button" class="search-icon" id="searchIcon" aria-label="Toggle search" aria-expanded="false">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </button>
                     <form id="searchForm" class="search-form">
+                        <label for="searchInput" class="sr-only">Search products</label>
                         <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
                     </form>
                 </div>
@@ -197,7 +200,6 @@
 
     <script src="js/bag.js"></script>
     <script src="js/confirmation.js"></script>
-    <script src="js/products.js"></script>
 
 </body>
 </html>
