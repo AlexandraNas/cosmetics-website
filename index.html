@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar">
 
-            <button class="menu-toggle" aria-label="Open navigation menu">
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -115,16 +115,17 @@
 
         <!-- featured products grid -->
         <section class="products">
-            <h2>Our Beauty Essentials</h2>
+            <h2>Discover Our Beauty Essentials</h2>
 
             <div class="product-grid">
 
                 <div class="card">
+                    <span class="new-badge">New</span>
                     <img src="media/images/VitC.png"
                          alt="AGL Vitamin C Brightening Serum"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="vitaminImage">
+                         id="vitaminImage" tabindex="0" role="button">
                     <h3>AGL Vitamin C Brightening Serum</h3>
                     <p>Skincare Collection</p>
                     <strong>£18.99</strong>
@@ -144,7 +145,7 @@
                          alt="AGL Hyaluronic Acid Moisturiser"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="moisturiserImage">
+                         id="moisturiserImage" tabindex="0" role="button">
                     <h3>AGL Hyaluronic Acid Moisturiser</h3>
                     <p>Skincare Collection</p>
                     <strong>£22.99</strong>
@@ -164,20 +165,20 @@
                          alt="AGL Matte Liquid Foundation"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="foundationImage">
+                         id="foundationImage" tabindex="0" role="button">
                     <h3>AGL Matte Liquid Foundation</h3>
                     <p>Available in 3 shades</p>
 
                     <div class="shade-swatches">
-                        <span class="foundation nude"
+                        <button type="button" class="foundation nude"
                               title="Light Nude"
-                              data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
-                        <span class="foundation beige"
+                              data-image="media/images/Foundation01.png" data-shade="Light Nude"></button>
+                        <button type="button" class="foundation beige"
                               title="Natural Beige"
-                              data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
-                        <span class="foundation tan"
+                              data-image="media/images/Foundation02.png" data-shade="Natural Beige"></button>
+                        <button type="button" class="foundation tan"
                               title="Warm Tan"
-                              data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
+                              data-image="media/images/Foundation03.png" data-shade="Warm Tan"></button>
                     </div>
 
                     <strong>£25.99</strong>
@@ -193,27 +194,28 @@
                 </div>
 
                 <div class="card">
+                    <span class="new-badge">New</span>
                     <img src="media/images/02SoftRoseNude.png"
                          alt="AGL Velvet Matte Lipstick"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="lipstickImage">
+                         id="lipstickImage" tabindex="0" role="button">
                     <h3>AGL Velvet Matte Lipstick</h3>
                     <p>Available in 4 shades</p>
 
                     <div class="lipstick-swatches">
-                        <span class="lip soft-rose-nude"
+                        <button type="button" class="lip soft-rose-nude"
                               title="Soft Rose Nude"
-                              data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
-                        <span class="lip rosewood"
+                              data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></button>
+                        <button type="button" class="lip rosewood"
                               title="Rosewood"
-                              data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
-                        <span class="lip velvet-ruby"
+                              data-image="media/images/03Rosewood.png" data-shade="Rosewood"></button>
+                        <button type="button" class="lip velvet-ruby"
                               title="Velvet Ruby"
-                              data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
-                        <span class="lip berry-nude"
+                              data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></button>
+                        <button type="button" class="lip berry-nude"
                               title="Berry Nude"
-                              data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
+                              data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></button>
                     </div>
 
                     <strong>£15.99</strong>
@@ -233,7 +235,7 @@
                          alt="AGL Argan Hair Oil"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="arganOilImage">
+                         id="arganOilImage" tabindex="0" role="button">
                     <h3>AGL Argan Hair Oil</h3>
                     <p>Hair Care Collection</p>
                     <strong>£15.99</strong>
@@ -253,7 +255,7 @@
                          alt="AGL Professional Makeup Brush Set"
                          class="product-image"
                          loading="lazy" decoding="async"
-                         id="brushSetImage">
+                         id="brushSetImage" tabindex="0" role="button">
                     <h3>AGL Professional Makeup Brush Set</h3>
                     <p>Beauty Tools Collection</p>
                     <strong>£39.99</strong>
@@ -340,7 +342,7 @@
     <!-- product modals -->
 
     <!-- Vit C Modal -->
-    <div id="vitaminModal" class="modal">
+    <div id="vitaminModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -386,7 +388,7 @@
     </div>
 
     <!-- Hyaluronic Acid Moisturiser Modal -->
-    <div id="moisturiserModal" class="modal">
+    <div id="moisturiserModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -433,7 +435,7 @@
     </div>
 
     <!-- Matte Liquid Foundation Modal -->
-    <div id="foundationModal" class="modal">
+    <div id="foundationModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -472,15 +474,15 @@
 
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
-                    <span class="foundation nude"
+                    <button type="button" class="foundation nude"
                           title="Light Nude"
-                          data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
-                    <span class="foundation beige"
+                          data-image="media/images/Foundation01.png" data-shade="Light Nude"></button>
+                    <button type="button" class="foundation beige"
                           title="Natural Beige"
-                          data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
-                    <span class="foundation tan"
+                          data-image="media/images/Foundation02.png" data-shade="Natural Beige"></button>
+                    <button type="button" class="foundation tan"
                           title="Warm Tan"
-                          data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
+                          data-image="media/images/Foundation03.png" data-shade="Warm Tan"></button>
                 </div>
 
                 <button class="primary-btn add-to-bag"
@@ -495,7 +497,7 @@
     </div>
 
     <!-- Velvet Matte Lipstick Modal -->
-    <div id="lipstickModal" class="modal">
+    <div id="lipstickModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -534,18 +536,18 @@
 
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
-                    <span class="lip soft-rose-nude"
+                    <button type="button" class="lip soft-rose-nude"
                           title="Soft Rose Nude"
-                          data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
-                    <span class="lip rosewood"
+                          data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></button>
+                    <button type="button" class="lip rosewood"
                           title="Rosewood"
-                          data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
-                    <span class="lip velvet-ruby"
+                          data-image="media/images/03Rosewood.png" data-shade="Rosewood"></button>
+                    <button type="button" class="lip velvet-ruby"
                           title="Velvet Ruby"
-                          data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
-                    <span class="lip berry-nude"
+                          data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></button>
+                    <button type="button" class="lip berry-nude"
                           title="Berry Nude"
-                          data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
+                          data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></button>
                 </div>
 
                 <button class="primary-btn add-to-bag"
@@ -560,7 +562,7 @@
     </div>
 
     <!-- Argan Hair Oil Modal -->
-    <div id="arganOilModal" class="modal">
+    <div id="arganOilModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -607,7 +609,7 @@
     </div>
 
     <!-- Professional Makeup Brush Set Modal -->
-    <div id="brushSetModal" class="modal">
+    <div id="brushSetModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 

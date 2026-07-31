@@ -70,7 +70,6 @@ a[href^="tel:"]:hover{
 
 /* required form fields get a subtle left accent so users can
    see what needs completing before they submit */
-
 input[required],
 select[required],
 textarea[required]{
@@ -816,6 +815,7 @@ nav a:hover{
 /* product cards */
 
 .card{
+    position:relative;
     display:flex;
     flex-direction:column;
     background:white;
@@ -886,6 +886,8 @@ nav a:hover{
         padding:30px;
     }
 
+    /* restore the larger, original sizing once the grid has
+       moved past the 2-per-row mobile layout below */
     .product-image{
         height:260px;
         margin-bottom:18px;
@@ -911,6 +913,7 @@ nav a:hover{
     }
 
 }
+
 
 /* values section */
 
@@ -1278,11 +1281,18 @@ nav a:hover{
         flex-basis:0%;
     }
 
+    /* let the newsletter blurb sit on one line at desktop width,
+       instead of wrapping under the narrower 420px column -
+       :first-of-type keeps this off the shorter lines below it
+       ("Please enter a valid email address" / the policy note) */
     .glow-club p:first-of-type{
         max-width:none;
         white-space:nowrap;
     }
 
+    /* the "Your email" + Subscribe pill doesn't need the full
+       560px it uses on smaller screens once there's this much
+       room either side of it */
     .subscribe-box{
         width:380px;
     }
@@ -2231,6 +2241,7 @@ section{
 
 }
 
+
 /* cart page */
 
 .cart-hero{
@@ -2484,7 +2495,19 @@ section{
 }
 
 
-/* shade swatches (foundation / lipstick / mascara / palette) */
+/* shade swatches (foundation / lipstick / mascara / palette)
+   these are <button> elements so they're keyboard-focusable -
+   the reset rules below strip default button styling so they
+   still look like plain colour circles */
+
+.foundation,
+.lip,
+.shade{
+    padding:0;
+    font:inherit;
+    -webkit-appearance:none;
+    appearance:none;
+}
 
 .foundation{
     width:18px;
@@ -2492,12 +2515,21 @@ section{
     border-radius:50%;
     border:1px solid #ddd;
     cursor:pointer;
-    transition:transform .3s ease;
+    transition:transform .3s ease, box-shadow .2s ease;
     display:inline-block;
 }
 
 .foundation:hover{
     transform:scale(1.2);
+}
+
+/* highlighted ring on whichever shade is currently selected -
+   box-shadow doesn't affect layout size, so this works the same
+   on mobile and desktop without needing a media query */
+.foundation.active,
+.lip.active,
+.shade.active{
+    box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--brand-dark);
 }
 
 .foundation.nude{
@@ -2526,7 +2558,7 @@ section{
     height:18px;
     border-radius:50%;
     border:1px solid #ddd;
-    transition:transform .3s ease;
+    transition:transform .3s ease, box-shadow .2s ease;
     cursor:pointer;
 }
 
@@ -2591,7 +2623,7 @@ section{
     border:1px solid #ddd;
     cursor:pointer;
     display:inline-block;
-    transition:transform .3s ease;
+    transition:transform .3s ease, box-shadow .2s ease;
 }
 
 .shade:hover{
@@ -2695,7 +2727,16 @@ section{
     transform:scale(1.04);
 }
 
+/* these images are keyboard-focusable (they open the product modal),
+   so give them a visible focus ring when tabbed to */
+.product-image:focus-visible,
+.shop-product-image:focus-visible{
+    outline:3px solid var(--brand-dark);
+    outline-offset:2px;
+}
+
 .shop-card{
+    position:relative;
     background:#fff;
     border:1px solid var(--border);
     border-radius:25px;
@@ -2903,6 +2944,30 @@ section{
     text-align:center;
     margin:50px 0 30px;
     letter-spacing:1px;
+}
+
+/* shown when a search matches no products */
+.no-results-message{
+    text-align:center;
+    color:var(--text-muted);
+    font-size:16px;
+    padding:60px 20px;
+}
+
+/* "New" badge on standout products */
+.new-badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:var(--brand-dark);
+    color:#fff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:20px;
+    z-index:2;
 }
 
 @media (min-width:769px){
@@ -3137,7 +3202,8 @@ section{
 
 }
 
-/* short-viewport fix (nest hub etc landscape tablets) */
+/* short-viewport fix (nest hub etc landscape tablets) -
+   keeps the image from collapsing on short/wide viewports */
 @media (max-height: 800px){
 
     .modal-content{

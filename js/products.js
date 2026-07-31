@@ -1,4 +1,3 @@
-
 // FOUNDATION
 
 function changeFoundation(image, shade) {
@@ -19,12 +18,14 @@ function changeFoundation(image, shade) {
         homeButton.dataset.shade = shade;
     }
 
-    
+
     const modalButton = document.querySelector("#foundationModal .add-to-bag");
     if (modalButton) {
         modalButton.dataset.image = image;
         modalButton.dataset.shade = shade;
     }
+
+    setActiveSwatch("foundation", shade);
 
 }
 
@@ -39,7 +40,7 @@ function changeLipstick(image, shade) {
     }
 
     // Modal image (Products page)
-    
+
     const modalImage = document.getElementById("lipstickModalImage");
     if (modalImage) {
         modalImage.src = image;
@@ -53,12 +54,14 @@ function changeLipstick(image, shade) {
     }
 
     // Products page modal Add to Bag button
-   
+
     const modalButton = document.querySelector("#lipstickModal .add-to-bag");
     if (modalButton) {
         modalButton.dataset.image = image;
         modalButton.dataset.shade = shade;
     }
+
+    setActiveSwatch("lip", shade);
 
 }
 
@@ -79,6 +82,14 @@ function changeMascara(image, shade){
     cardButton.dataset.image = image;
     cardButton.dataset.shade = shade;
 
+    setActiveSwatch("shade", shade);
+
+}
+
+function setActiveSwatch(className, shade){
+    document.querySelectorAll("." + className).forEach(swatch => {
+        swatch.classList.toggle("active", swatch.dataset.shade === shade);
+    });
 }
 
 // SHADE SWATCH CLICKS
@@ -112,6 +123,11 @@ document.querySelectorAll(".shade").forEach(swatch => {
     });
 
 });
+
+// highlight the shade that matches the default image already shown
+setActiveSwatch("foundation", "Light Nude");
+setActiveSwatch("lip", "Soft Rose Nude");
+setActiveSwatch("shade", "Black");
 
 
 // PRODUCT FILTER
@@ -181,124 +197,67 @@ const faceRollerImage = document.getElementById("faceRollerImage");
 const faceRollerModal = document.getElementById("faceRollerModal");
 const mirrorImage = document.getElementById("mirrorImage");
 const mirrorModal = document.getElementById("mirrorModal");
-if (vitaminImage) {
-vitaminImage.addEventListener("click", function () {
-    vitaminModal.style.display = "flex";
-});
-}
-if (moisturiserImage) {
-moisturiserImage.addEventListener("click", function () {
-    moisturiserModal.style.display = "flex";
-});
-}
-if (repairCreamImage) {
-repairCreamImage.addEventListener("click", function () {
-    repairCreamModal.style.display = "flex";
-});
-}
-if (foundationImage) {
-foundationImage.addEventListener("click", function () {
-    foundationModal.style.display = "flex";
-});
-}
-if (lipstickImage) {
-lipstickImage.addEventListener("click", function () {
-    lipstickModal.style.display = "flex";
-});
-}
-if (mascaraImage) {
-mascaraImage.addEventListener("click", function () {
-    mascaraModal.style.display = "flex";
-});
-}
-if (arganOilImage) {
-arganOilImage.addEventListener("click", function () {
-    arganOilModal.style.display = "flex";
-});
-}
-if (hairMaskImage) {
-hairMaskImage.addEventListener("click", function () {
-    hairMaskModal.style.display = "flex";
-});
-}
-if (scalpBrushImage) {
-scalpBrushImage.addEventListener("click", function () {
-    scalpBrushModal.style.display = "flex";
-});
-}
-if (brushSetImage) {
-brushSetImage.addEventListener("click", function () {
-    brushSetModal.style.display = "flex";
-});
-}
-if (faceRollerImage) {
-faceRollerImage.addEventListener("click", function () {
-    faceRollerModal.style.display = "flex";
-});
-}
-if (mirrorImage) {
-mirrorImage.addEventListener("click", function () {
-    mirrorModal.style.display = "flex";
-});
-}
-closeButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
 
-        if (vitaminModal) vitaminModal.style.display = "none";
-        if (moisturiserModal) moisturiserModal.style.display = "none";
-        if (repairCreamModal) repairCreamModal.style.display = "none";
-        if (foundationModal) foundationModal.style.display = "none";
-        if (lipstickModal) lipstickModal.style.display = "none";
-        if (mascaraModal) mascaraModal.style.display = "none";
-        if (arganOilModal) arganOilModal.style.display = "none";
-        if (hairMaskModal) hairMaskModal.style.display = "none";
-        if (scalpBrushModal) scalpBrushModal.style.display = "none";
-        if (brushSetModal) brushSetModal.style.display = "none";
-        if (faceRollerModal) faceRollerModal.style.display = "none";
-        if (mirrorModal) mirrorModal.style.display = "none";
+// each product's trigger image + the modal it opens, looped over
+// instead of 12 near-identical blocks - also means keyboard support
+// (Enter/Space) and Escape-to-close only need to be written once
+const modalPairs = [
+    [vitaminImage, vitaminModal],
+    [moisturiserImage, moisturiserModal],
+    [repairCreamImage, repairCreamModal],
+    [foundationImage, foundationModal],
+    [lipstickImage, lipstickModal],
+    [mascaraImage, mascaraModal],
+    [arganOilImage, arganOilModal],
+    [hairMaskImage, hairMaskModal],
+    [scalpBrushImage, scalpBrushModal],
+    [brushSetImage, brushSetModal],
+    [faceRollerImage, faceRollerModal],
+    [mirrorImage, mirrorModal]
+];
 
+function openModal(modal){
+    if (!modal) return;
+    modal.style.display = "flex";
+    const closeBtn = modal.querySelector(".close-modal");
+    if (closeBtn) closeBtn.focus();
+}
+
+function closeModal(modal){
+    if (modal) modal.style.display = "none";
+}
+
+function closeAllModals(){
+    modalPairs.forEach(([, modal]) => closeModal(modal));
+}
+
+modalPairs.forEach(([trigger, modal]) => {
+
+    if (!trigger || !modal) return;
+
+    trigger.addEventListener("click", () => openModal(modal));
+
+    trigger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModal(modal);
+        }
     });
+
+});
+
+closeButtons.forEach(function (button) {
+    button.addEventListener("click", closeAllModals);
 });
 
 window.addEventListener("click", function (event) {
+    modalPairs.forEach(([, modal]) => {
+        if (event.target === modal) closeModal(modal);
+    });
+});
 
-   if (event.target === vitaminModal) {
-    vitaminModal.style.display = "none";
-}
-
-if (event.target === moisturiserModal) {
-    moisturiserModal.style.display = "none";
-}
-if (event.target === repairCreamModal) {
-    repairCreamModal.style.display = "none";
-}
-if (event.target === foundationModal) {
-    foundationModal.style.display = "none";
-}
-if (event.target === lipstickModal) {
-    lipstickModal.style.display = "none";
-}
-if (event.target === mascaraModal) {
-    mascaraModal.style.display = "none";
-}
-if (event.target === arganOilModal) {
-    arganOilModal.style.display = "none";
-}
-if (event.target === hairMaskModal) {
-    hairMaskModal.style.display = "none";
-}
-if (event.target === scalpBrushModal) {
-    scalpBrushModal.style.display = "none";
-}
-if (event.target === brushSetModal) {
-    brushSetModal.style.display = "none";
-}
-if (event.target === faceRollerModal) {
-    faceRollerModal.style.display = "none";
-}
-if (event.target === mirrorModal) {
-    mirrorModal.style.display = "none";
-}
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllModals();
 });
 
 
@@ -321,6 +280,7 @@ if (searchIcon) {
 function filterProducts(query) {
     const term = query.trim().toLowerCase();
     const productSections = document.querySelectorAll(".product-section");
+    let anyVisibleOverall = false;
 
     productSections.forEach(section => {
         const cardsInSection = section.querySelectorAll(".shop-card");
@@ -334,7 +294,13 @@ function filterProducts(query) {
         });
 
         section.style.display = anyVisible ? "block" : "none";
+        if (anyVisible) anyVisibleOverall = true;
     });
+
+    const noResults = document.getElementById("noResultsMessage");
+    if (noResults) {
+        noResults.style.display = anyVisibleOverall ? "none" : "block";
+    }
 }
 
 function scrollToResults() {
@@ -413,10 +379,12 @@ if (menuButton && mobileMenu && closeButton) {
 
     menuButton.addEventListener("click", () => {
         mobileMenu.classList.add("active");
+        menuButton.setAttribute("aria-expanded", "true");
     });
 
     closeButton.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
     });
 
 }
@@ -425,6 +393,7 @@ const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
 mobileMenuLinks.forEach(link => {
     link.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
+        if (menuButton) menuButton.setAttribute("aria-expanded", "false");
     });
 });
 
