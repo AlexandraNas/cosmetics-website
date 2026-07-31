@@ -3,8 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // loadBag() is defined in bag.js and safely handles a
-    // missing/corrupted localStorage value via try/catch
+    // loadBag()
     const bag = loadBag();
 
     const checkoutItems = document.getElementById("checkoutItems");
@@ -154,17 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Generate an order number
         const orderNumber = "AGL-" + Math.floor(100000 + Math.random() * 900000);
 
-        // Save it for the confirmation page
         localStorage.setItem("orderNumber", orderNumber);
 
-        // Clear the bag
         localStorage.removeItem("bag");
 
         if(typeof updateBagCount === "function"){
             updateBagCount();
         }
 
-        // Go to confirmation page
         window.location.href = "confirmation.html";
 
         window.scrollTo({

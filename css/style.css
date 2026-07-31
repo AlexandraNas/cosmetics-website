@@ -1,8 +1,5 @@
 /* Main stylesheet - beauty site
  MOBILE-FIRST version. */
-/* fonts are now loaded via <link> tags in each HTML head (with preconnect)
-   instead of @import here - @import blocks CSS parsing and delays font
-   discovery, which was flagged by Lighthouse as a render-blocking issue */
 
 /* colors / variables */
 
@@ -73,6 +70,7 @@ a[href^="tel:"]:hover{
 
 /* required form fields get a subtle left accent so users can
    see what needs completing before they submit */
+
 input[required],
 select[required],
 textarea[required]{
@@ -888,8 +886,6 @@ nav a:hover{
         padding:30px;
     }
 
-    /* restore the larger, original sizing once the grid has
-       moved past the 2-per-row mobile layout below */
     .product-image{
         height:260px;
         margin-bottom:18px;
@@ -915,7 +911,6 @@ nav a:hover{
     }
 
 }
-
 
 /* values section */
 
@@ -1283,18 +1278,11 @@ nav a:hover{
         flex-basis:0%;
     }
 
-    /* let the newsletter blurb sit on one line at desktop width,
-       instead of wrapping under the narrower 420px column -
-       :first-of-type keeps this off the shorter lines below it
-       ("Please enter a valid email address" / the policy note) */
     .glow-club p:first-of-type{
         max-width:none;
         white-space:nowrap;
     }
 
-    /* the "Your email" + Subscribe pill doesn't need the full
-       560px it uses on smaller screens once there's this much
-       room either side of it */
     .subscribe-box{
         width:380px;
     }
@@ -2243,7 +2231,6 @@ section{
 
 }
 
-
 /* cart page */
 
 .cart-hero{
@@ -3150,8 +3137,7 @@ section{
 
 }
 
-/* short-viewport fix (nest hub etc landscape tablets) -
-   keeps the image from collapsing on short/wide viewports */
+/* short-viewport fix (nest hub etc landscape tablets) */
 @media (max-height: 800px){
 
     .modal-content{
