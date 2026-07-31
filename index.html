@@ -5,10 +5,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AGL | Alexa Glow London</title>
+    <title>AGL | Shop</title>
 
     <meta name="description"
-          content="Discover luxury skincare, makeup, hair care and beauty tools at AGL - Alexa Glow London. Premium beauty essentials designed to enhance your natural glow.">
+          content="Shop AGL's collection of luxury skincare, makeup, hair care and beauty tools. Discover premium beauty essentials for every routine.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar">
 
-            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Open navigation menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -76,7 +76,7 @@
 
         </nav>
 
-        <!-- slide-out mobile menu panel -->
+        <!-- the slide-out mobile menu panel -->
         <div class="mobile-menu">
             <button class="close-menu" aria-label="Close menu">&times;</button>
 
@@ -93,43 +93,30 @@
 
     <main>
 
-        <!-- hero banner -->
-        <section class="hero">
-            <video class="hero-bg-video" autoplay muted loop playsinline>
-                <source src="media/video/Final.mp4" type="video/mp4">
-            </video>
-
-            <div class="hero-overlay"></div>
-
-            <div class="hero-text">
-                <h1>Discover Your Natural Glow</h1>
-
-                <p>
-                    Skincare and beauty essentials designed
-                    to enhance your confidence and radiance.
-                </p>
-
-                <a href="products.html" class="primary-btn">Shop Collection</a>
-            </div>
+        <!-- shop hero -->
+        <section class="shop-hero">
+            <h1>Shop Our Collection</h1>
+            <p>Beauty essentials crafted for every routine.</p>
         </section>
 
-        <!-- featured products grid -->
-        <section class="products">
-            <h2>Discover Our Beauty Essentials</h2>
+        <section class="shop-products">
 
-            <div class="product-grid">
+            <!-- skincare collection -->
+            <section id="skincare" class="product-section">
+                <h2 class="section-title">Skincare</h2>
 
-                <div class="card">
-                    <span class="new-badge">New</span>
-                    <img src="media/images/VitC.png"
-                         alt="AGL Vitamin C Brightening Serum"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="vitaminImage" tabindex="0" role="button">
-                    <h3>AGL Vitamin C Brightening Serum</h3>
-                    <p>Skincare Collection</p>
-                    <strong>£18.99</strong>
-                    <div class="product-footer">
+                <div class="shop-grid">
+
+                    <!-- Vitamin C Serum -->
+                    <div class="shop-card" data-category="skincare">
+                        <img src="media/images/VitC.png"
+                             alt="AGL Vitamin C Brightening Serum"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="vitaminImage">
+                        <h3>AGL Vitamin C Brightening Serum</h3>
+                        <span class="sr-only">Category: Skincare</span>
+                        <strong>£18.99</strong>
                         <button class="primary-btn add-to-bag"
                                 data-id="vitamin-c-serum"
                                 data-name="Vitamin C Brightening Serum"
@@ -138,18 +125,17 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="media/images/AcidHyaluronic.png"
-                         alt="AGL Hyaluronic Acid Moisturiser"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="moisturiserImage" tabindex="0" role="button">
-                    <h3>AGL Hyaluronic Acid Moisturiser</h3>
-                    <p>Skincare Collection</p>
-                    <strong>£22.99</strong>
-                    <div class="product-footer">
+                    <!-- Hyaluronic Moisturiser -->
+                    <div class="shop-card">
+                        <img src="media/images/AcidHyaluronic.png"
+                             alt="AGL Hyaluronic Acid Moisturiser"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="moisturiserImage">
+                        <h3>AGL Hyaluronic Acid Moisturiser</h3>
+                        <span class="sr-only">Category: Skincare</span>
+                        <strong>£22.99</strong>
                         <button class="primary-btn add-to-bag"
                                 data-id="hyaluronic-moisturiser"
                                 data-name="Hyaluronic Acid Moisturiser"
@@ -158,31 +144,58 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="media/images/Foundation01.png"
-                         alt="AGL Matte Liquid Foundation"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="foundationImage" tabindex="0" role="button">
-                    <h3>AGL Matte Liquid Foundation</h3>
-                    <p>Available in 3 shades</p>
-
-                    <div class="shade-swatches">
-                        <button type="button" class="foundation nude"
-                              title="Light Nude"
-                              data-image="media/images/Foundation01.png" data-shade="Light Nude"></button>
-                        <button type="button" class="foundation beige"
-                              title="Natural Beige"
-                              data-image="media/images/Foundation02.png" data-shade="Natural Beige"></button>
-                        <button type="button" class="foundation tan"
-                              title="Warm Tan"
-                              data-image="media/images/Foundation03.png" data-shade="Warm Tan"></button>
+                    <!-- Overnight Repair Cream -->
+                    <div class="shop-card">
+                        <img src="media/images/Cream.png"
+                             alt="AGL Overnight Repair Cream"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="repairCreamImage">
+                        <h3>AGL Overnight Repair Cream</h3>
+                        <span class="sr-only">Category: Skincare</span>
+                        <strong>£24.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="repair-cream"
+                                data-name="Overnight Repair Cream"
+                                data-price="24.99"
+                                data-image="media/images/Cream.png">
+                            Add to Bag
+                        </button>
                     </div>
 
-                    <strong>£25.99</strong>
-                    <div class="product-footer">
+                </div>
+            </section>
+
+            <!-- makeup collection -->
+            <section id="makeup" class="product-section">
+                <h2 class="section-title">Makeup</h2>
+
+                <div class="shop-grid">
+
+                    <!-- Matte Liquid Foundation -->
+                    <div class="shop-card" data-category="makeup">
+                        <img src="media/images/Foundation01.png"
+                             alt="AGL Matte Liquid Foundation"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="foundationImage">
+                        <h3>AGL Matte Liquid Foundation</h3>
+                        <span class="sr-only">Category: Makeup</span>
+                        <strong>£25.99</strong>
+
+                        <div class="shade-swatches">
+                            <span class="foundation nude"
+                                  title="Light Nude"
+                                  data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
+                            <span class="foundation beige"
+                                  title="Natural Beige"
+                                  data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
+                            <span class="foundation tan"
+                                  title="Warm Tan"
+                                  data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
+                        </div>
+
                         <button class="primary-btn add-to-bag"
                                 data-id="foundation"
                                 data-name="Matte Liquid Foundation"
@@ -191,35 +204,33 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <span class="new-badge">New</span>
-                    <img src="media/images/02SoftRoseNude.png"
-                         alt="AGL Velvet Matte Lipstick"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="lipstickImage" tabindex="0" role="button">
-                    <h3>AGL Velvet Matte Lipstick</h3>
-                    <p>Available in 4 shades</p>
+                    <!-- Velvet Matte Lipstick -->
+                    <div class="shop-card">
+                        <img src="media/images/02SoftRoseNude.png"
+                             alt="AGL Velvet Matte Lipstick"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="lipstickImage">
+                        <h3>AGL Velvet Matte Lipstick</h3>
+                        <span class="sr-only">Category: Makeup</span>
+                        <strong>£15.99</strong>
 
-                    <div class="lipstick-swatches">
-                        <button type="button" class="lip soft-rose-nude"
-                              title="Soft Rose Nude"
-                              data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></button>
-                        <button type="button" class="lip rosewood"
-                              title="Rosewood"
-                              data-image="media/images/03Rosewood.png" data-shade="Rosewood"></button>
-                        <button type="button" class="lip velvet-ruby"
-                              title="Velvet Ruby"
-                              data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></button>
-                        <button type="button" class="lip berry-nude"
-                              title="Berry Nude"
-                              data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></button>
-                    </div>
+                        <div class="lipstick-swatches">
+                            <span class="lip soft-rose-nude"
+                                  title="Soft Rose Nude"
+                                  data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
+                            <span class="lip rosewood"
+                                  title="Rosewood"
+                                  data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
+                            <span class="lip velvet-ruby"
+                                  title="Velvet Ruby"
+                                  data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
+                            <span class="lip berry-nude"
+                                  title="Berry Nude"
+                                  data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
+                        </div>
 
-                    <strong>£15.99</strong>
-                    <div class="product-footer">
                         <button class="primary-btn add-to-bag"
                                 data-id="lipstick"
                                 data-name="Velvet Matte Lipstick"
@@ -228,18 +239,55 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="media/images/ArganOil.png"
-                         alt="AGL Argan Hair Oil"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="arganOilImage" tabindex="0" role="button">
-                    <h3>AGL Argan Hair Oil</h3>
-                    <p>Hair Care Collection</p>
-                    <strong>£15.99</strong>
-                    <div class="product-footer">
+                    <!-- Waterproof Mascara -->
+                    <div class="shop-card">
+                        <img src="media/images/MascaraBlack.png"
+                             alt="AGL Waterproof Mascara"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="mascaraImage">
+                        <h3>AGL Waterproof Mascara</h3>
+                        <span class="sr-only">Category: Makeup</span>
+                        <strong>£19.99</strong>
+
+                        <div class="shade-swatches">
+                            <span class="shade mascara-black"
+                                  title="Black"
+                                  data-image="media/images/MascaraBlack.png" data-shade="Black"></span>
+                            <span class="shade mascara-brown"
+                                  title="Brown"
+                                  data-image="media/images/MascaraBrown.png" data-shade="Brown"></span>
+                        </div>
+
+                        <button class="primary-btn add-to-bag"
+                                data-id="mascara"
+                                data-name="Waterproof Mascara"
+                                data-price="19.99"
+                                data-image="media/images/MascaraBlack.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- hair care collection -->
+            <section id="haircare" class="product-section">
+                <h2 class="section-title">Hair Care</h2>
+
+                <div class="shop-grid">
+
+                    <!-- Argan Hair Oil -->
+                    <div class="shop-card" data-category="haircare">
+                        <img src="media/images/ArganOil.png"
+                             alt="AGL Argan Hair Oil"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="arganOilImage">
+                        <h3>AGL Argan Hair Oil</h3>
+                        <span class="sr-only">Category: Hair Care</span>
+                        <strong>£15.99</strong>
                         <button class="primary-btn add-to-bag"
                                 data-id="argan-hair-oil"
                                 data-name="Argan Hair Oil"
@@ -248,18 +296,64 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img src="media/images/BrushSet.png"
-                         alt="AGL Professional Makeup Brush Set"
-                         class="product-image"
-                         loading="lazy" decoding="async"
-                         id="brushSetImage" tabindex="0" role="button">
-                    <h3>AGL Professional Makeup Brush Set</h3>
-                    <p>Beauty Tools Collection</p>
-                    <strong>£39.99</strong>
-                    <div class="product-footer">
+                    <!-- Repair Hair Mask -->
+                    <div class="shop-card">
+                        <img src="media/images/Hairmask.png"
+                             alt="AGL Repair Hair Mask"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="hairMaskImage">
+                        <h3>AGL Repair Hair Mask</h3>
+                        <span class="sr-only">Category: Hair Care</span>
+                        <strong>£14.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="hair-mask"
+                                data-name="Repair Hair Mask"
+                                data-price="14.99"
+                                data-image="media/images/Hairmask.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- Scalp Massage Brush -->
+                    <div class="shop-card">
+                        <img src="media/images/HairBrush.png"
+                             alt="AGL Scalp Massage Brush"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="scalpBrushImage">
+                        <h3>AGL Scalp Massage Brush</h3>
+                        <span class="sr-only">Category: Hair Care</span>
+                        <strong>£9.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="scalp-brush"
+                                data-name="Scalp Massage Brush"
+                                data-price="9.99"
+                                data-image="media/images/HairBrush.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- beauty tools collection -->
+            <section id="tools" class="product-section">
+                <h2 class="section-title">Beauty Tools</h2>
+
+                <div class="shop-grid">
+
+                    <!-- Professional Brush Set -->
+                    <div class="shop-card" data-category="tools">
+                        <img src="media/images/BrushSet.png"
+                             alt="AGL Professional Makeup Brush Set"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="brushSetImage">
+                        <h3>AGL Professional Makeup Brush Set</h3>
+                        <span class="sr-only">Category: Beauty Tools</span>
+                        <strong>£39.99</strong>
                         <button class="primary-btn add-to-bag"
                                 data-id="brush-set"
                                 data-name="Professional Makeup Brush Set"
@@ -268,9 +362,48 @@
                             Add to Bag
                         </button>
                     </div>
-                </div>
 
-            </div>
+                    <!-- Rose Quartz Face Roller -->
+                    <div class="shop-card">
+                        <img src="media/images/FaceRoller.png"
+                             alt="AGL Rose Quartz Face Roller"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="faceRollerImage">
+                        <h3>AGL Rose Quartz Face Roller</h3>
+                        <span class="sr-only">Category: Beauty Tools</span>
+                        <strong>£19.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="face-roller"
+                                data-name="Rose Quartz Face Roller"
+                                data-price="19.99"
+                                data-image="media/images/FaceRoller.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                    <!-- LED Vanity Mirror -->
+                    <div class="shop-card">
+                        <img src="media/images/Mirror.png"
+                             alt="AGL LED Vanity Mirror"
+                             class="shop-product-image"
+                             loading="lazy" decoding="async"
+                             id="mirrorImage">
+                        <h3>AGL LED Vanity Mirror</h3>
+                        <span class="sr-only">Category: Beauty Tools</span>
+                        <strong>£39.99</strong>
+                        <button class="primary-btn add-to-bag"
+                                data-id="led-mirror"
+                                data-name="LED Vanity Mirror"
+                                data-price="39.99"
+                                data-image="media/images/Mirror.png">
+                            Add to Bag
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
         </section>
 
     </main>
@@ -301,6 +434,7 @@
             <!-- Links + Social -->
             <div class="footer-navigation">
 
+                <!-- Explore -->
                 <div class="footer-links">
                     <h3>Navigate</h3>
                     <a href="index.html">Home</a>
@@ -309,12 +443,14 @@
                     <a href="contact.html">Contact</a>
                 </div>
 
+                <!-- Support -->
                 <div class="footer-links">
                     <h3>Official</h3>
                     <a href="faq.html">FAQ</a>
                     <a href="policy.html">Policy</a>
                 </div>
 
+                <!-- Follow Us -->
                 <div class="footer-links">
                     <h3>Social</h3>
                     <a href="#">
@@ -339,17 +475,13 @@
         </div>
     </footer>
 
-    <!-- product modals -->
-
     <!-- Vit C Modal -->
-    <div id="vitaminModal" class="modal" role="dialog" aria-modal="true">
+    <div id="vitaminModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
             <div class="modal-image-container">
-                <img src="media/images/VitC.png"
-                     alt="AGL Vitamin C Brightening Serum"
-                     class="modal-image" loading="lazy" decoding="async">
+                <img src="media/images/VitC.png" alt="AGL Vitamin C Brightening Serum" class="modal-image" loading="lazy" decoding="async">
             </div>
 
             <div class="modal-info">
@@ -388,14 +520,12 @@
     </div>
 
     <!-- Hyaluronic Acid Moisturiser Modal -->
-    <div id="moisturiserModal" class="modal" role="dialog" aria-modal="true">
+    <div id="moisturiserModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
             <div class="modal-image-container">
-                <img src="media/images/AcidHyaluronic.png"
-                     alt="AGL Hyaluronic Acid Moisturiser"
-                     class="modal-image" loading="lazy" decoding="async">
+                <img src="media/images/AcidHyaluronic.png" alt="AGL Hyaluronic Acid Moisturiser" class="modal-image" loading="lazy" decoding="async">
             </div>
 
             <div class="modal-info">
@@ -434,8 +564,52 @@
         </div>
     </div>
 
+    <!-- Overnight Repair Cream Modal -->
+    <div id="repairCreamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Cream.png" alt="AGL Overnight Repair Cream" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL SKINCARE</p>
+                <h2>Overnight Repair Cream</h2>
+                <p class="modal-price">£24.99</p>
+
+                <p class="modal-description">
+                    A deeply nourishing overnight cream that helps restore the skin's
+                    moisture barrier while you sleep.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Intensely hydrates overnight</p>
+                    <p>✓ Supports the skin's natural barrier</p>
+                    <p>✓ Smooths and softens the skin</p>
+                    <p>✓ Suitable for all skin types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Ceramides</span>
+                    <span>Peptides</span>
+                    <span>Shea Butter</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="repair-cream"
+                        data-name="Overnight Repair Cream"
+                        data-price="24.99"
+                        data-image="media/images/Cream.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Matte Liquid Foundation Modal -->
-    <div id="foundationModal" class="modal" role="dialog" aria-modal="true">
+    <div id="foundationModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -474,15 +648,15 @@
 
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
-                    <button type="button" class="foundation nude"
+                    <span class="foundation nude"
                           title="Light Nude"
-                          data-image="media/images/Foundation01.png" data-shade="Light Nude"></button>
-                    <button type="button" class="foundation beige"
+                          data-image="media/images/Foundation01.png" data-shade="Light Nude"></span>
+                    <span class="foundation beige"
                           title="Natural Beige"
-                          data-image="media/images/Foundation02.png" data-shade="Natural Beige"></button>
-                    <button type="button" class="foundation tan"
+                          data-image="media/images/Foundation02.png" data-shade="Natural Beige"></span>
+                    <span class="foundation tan"
                           title="Warm Tan"
-                          data-image="media/images/Foundation03.png" data-shade="Warm Tan"></button>
+                          data-image="media/images/Foundation03.png" data-shade="Warm Tan"></span>
                 </div>
 
                 <button class="primary-btn add-to-bag"
@@ -497,7 +671,7 @@
     </div>
 
     <!-- Velvet Matte Lipstick Modal -->
-    <div id="lipstickModal" class="modal" role="dialog" aria-modal="true">
+    <div id="lipstickModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
@@ -536,18 +710,18 @@
 
                 <h4 class="ingredients-title">Available Shades</h4>
                 <div class="modal-swatches">
-                    <button type="button" class="lip soft-rose-nude"
+                    <span class="lip soft-rose-nude"
                           title="Soft Rose Nude"
-                          data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></button>
-                    <button type="button" class="lip rosewood"
+                          data-image="media/images/02SoftRoseNude.png" data-shade="Soft Rose Nude"></span>
+                    <span class="lip rosewood"
                           title="Rosewood"
-                          data-image="media/images/03Rosewood.png" data-shade="Rosewood"></button>
-                    <button type="button" class="lip velvet-ruby"
+                          data-image="media/images/03Rosewood.png" data-shade="Rosewood"></span>
+                    <span class="lip velvet-ruby"
                           title="Velvet Ruby"
-                          data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></button>
-                    <button type="button" class="lip berry-nude"
+                          data-image="media/images/04VelvetRuby.png" data-shade="Velvet Ruby"></span>
+                    <span class="lip berry-nude"
                           title="Berry Nude"
-                          data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></button>
+                          data-image="media/images/05BerryNude.png" data-shade="Berry Nude"></span>
                 </div>
 
                 <button class="primary-btn add-to-bag"
@@ -561,15 +735,72 @@
         </div>
     </div>
 
-    <!-- Argan Hair Oil Modal -->
-    <div id="arganOilModal" class="modal" role="dialog" aria-modal="true">
+    <!-- Waterproof Mascara Modal -->
+    <div id="mascaraModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
             <div class="modal-image-container">
-                <img src="media/images/ArganOil.png"
-                     alt="AGL Argan Hair Oil"
-                     class="modal-image" loading="lazy" decoding="async">
+                <img src="media/images/MascaraBlack.png"
+                     alt="AGL Waterproof Mascara"
+                     class="modal-image"
+                     loading="lazy" decoding="async"
+                     id="mascaraModalImage">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL MAKEUP</p>
+                <h2>Waterproof Mascara</h2>
+                <p class="modal-price">£19.99</p>
+
+                <p class="modal-description">
+                    A lightweight waterproof mascara that lengthens, lifts and defines
+                    every lash while providing long-lasting, smudge-resistant wear
+                    throughout the day.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Waterproof and smudge-resistant</p>
+                    <p>✓ Lengthens and volumises lashes</p>
+                    <p>✓ Lightweight, clump-free formula</p>
+                    <p>✓ Defines every lash with your choice of shade</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Panthenol</span>
+                    <span>Vitamin E</span>
+                    <span>Carnauba Wax</span>
+                </div>
+
+                <h4 class="ingredients-title">Available Shades</h4>
+                <div class="modal-swatches">
+                    <span class="shade mascara-black"
+                          title="Black"
+                          data-image="media/images/MascaraBlack.png" data-shade="Black"></span>
+                    <span class="shade mascara-brown"
+                          title="Brown"
+                          data-image="media/images/MascaraBrown.png" data-shade="Brown"></span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="mascara"
+                        data-name="Waterproof Mascara"
+                        data-price="19.99"
+                        data-image="media/images/MascaraBlack.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Argan Hair Oil Modal -->
+    <div id="arganOilModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/ArganOil.png" alt="AGL Argan Hair Oil" class="modal-image" loading="lazy" decoding="async">
             </div>
 
             <div class="modal-info">
@@ -608,15 +839,103 @@
         </div>
     </div>
 
-    <!-- Professional Makeup Brush Set Modal -->
-    <div id="brushSetModal" class="modal" role="dialog" aria-modal="true">
+    <!-- Repair Hair Mask Modal -->
+    <div id="hairMaskModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
 
             <div class="modal-image-container">
-                <img src="media/images/BrushSet.png"
-                     alt="AGL Professional Makeup Brush Set"
-                     class="modal-image" loading="lazy" decoding="async">
+                <img src="media/images/Hairmask.png" alt="AGL Repair Hair Mask" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL HAIRCARE</p>
+                <h2>Repair Hair Mask</h2>
+                <p class="modal-price">£14.99</p>
+
+                <p class="modal-description">
+                    A deeply nourishing hair mask designed to repair dry and damaged
+                    hair, restoring softness, strength and healthy-looking shine
+                    after every use.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Deeply nourishes dry hair</p>
+                    <p>✓ Helps repair damaged strands</p>
+                    <p>✓ Leaves hair soft and smooth</p>
+                    <p>✓ Suitable for all hair types</p>
+                </div>
+
+                <h4 class="ingredients-title">Key Ingredients</h4>
+                <div class="ingredient-tags">
+                    <span>Keratin</span>
+                    <span>Argan Oil</span>
+                    <span>Shea Butter</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="hair-mask"
+                        data-name="Repair Hair Mask"
+                        data-price="14.99"
+                        data-image="media/images/Hairmask.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scalp Massage Brush Modal -->
+    <div id="scalpBrushModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/HairBrush.png" alt="AGL Scalp Massage Brush" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL HAIRCARE</p>
+                <h2>Scalp Massage Brush</h2>
+                <p class="modal-price">£9.99</p>
+
+                <p class="modal-description">
+                    A gentle silicone scalp massage brush designed to cleanse the
+                    scalp, stimulate circulation and enhance your hair care routine
+                    while providing a relaxing massage experience.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Gently exfoliates the scalp</p>
+                    <p>✓ Helps distribute shampoo evenly</p>
+                    <p>✓ Comfortable ergonomic grip</p>
+                    <p>✓ Suitable for all hair types</p>
+                </div>
+
+                <h4 class="ingredients-title">Product Features</h4>
+                <div class="ingredient-tags">
+                    <span>Soft Silicone Bristles</span>
+                    <span>Ergonomic Handle</span>
+                    <span>Water Resistant</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="scalp-brush"
+                        data-name="Scalp Massage Brush"
+                        data-price="9.99"
+                        data-image="media/images/HairBrush.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Makeup Brush Set Modal -->
+    <div id="brushSetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/BrushSet.png" alt="AGL Professional Makeup Brush Set" class="modal-image" loading="lazy" decoding="async">
             </div>
 
             <div class="modal-info">
@@ -649,6 +968,96 @@
                         data-name="Professional Makeup Brush Set"
                         data-price="39.99"
                         data-image="media/images/BrushSet.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rose Quartz Face Roller Modal -->
+    <div id="faceRollerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/FaceRoller.png" alt="AGL Rose Quartz Face Roller" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL BEAUTY TOOLS</p>
+                <h2>Rose Quartz Face Roller</h2>
+                <p class="modal-price">£19.99</p>
+
+                <p class="modal-description">
+                    A luxurious rose quartz face roller designed to gently massage the
+                    skin, helping to reduce the appearance of puffiness while promoting
+                    a refreshed, radiant-looking complexion.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Helps reduce facial puffiness</p>
+                    <p>✓ Promotes a refreshed appearance</p>
+                    <p>✓ Encourages gentle facial massage</p>
+                    <p>✓ Suitable for all skin types</p>
+                </div>
+
+                <h4 class="ingredients-title">Product Features</h4>
+                <div class="ingredient-tags">
+                    <span>Rose Quartz Stone</span>
+                    <span>Dual-Ended Roller</span>
+                    <span>Ergonomic Handle</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="face-roller"
+                        data-name="Rose Quartz Face Roller"
+                        data-price="19.99"
+                        data-image="media/images/FaceRoller.png">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LED Vanity Mirror Modal -->
+    <div id="mirrorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="modal-image-container">
+                <img src="media/images/Mirror.png" alt="AGL LED Vanity Mirror" class="modal-image" loading="lazy" decoding="async">
+            </div>
+
+            <div class="modal-info">
+                <p class="modal-brand">AGL BEAUTY TOOLS</p>
+                <h2>LED Vanity Mirror</h2>
+                <p class="modal-price">£39.99</p>
+
+                <p class="modal-description">
+                    A premium LED vanity mirror featuring adjustable brightness and
+                    crystal-clear reflection to help you achieve flawless makeup
+                    application and skincare routines every day.
+                </p>
+
+                <div class="modal-features">
+                    <p>✓ Adjustable LED lighting</p>
+                    <p>✓ Crystal-clear reflection</p>
+                    <p>✓ Touch sensor controls</p>
+                    <p>✓ Perfect for makeup and skincare</p>
+                </div>
+
+                <h4 class="ingredients-title">Product Features</h4>
+                <div class="ingredient-tags">
+                    <span>LED Lighting</span>
+                    <span>Touch Controls</span>
+                    <span>Adjustable Brightness</span>
+                </div>
+
+                <button class="primary-btn add-to-bag"
+                        data-id="led-mirror"
+                        data-name="LED Vanity Mirror"
+                        data-price="39.99"
+                        data-image="media/images/Mirror.png">
                     Add to Bag
                 </button>
             </div>
