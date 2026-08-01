@@ -909,6 +909,14 @@ nav a:hover{
     color:#5c4637;
 }
 
+/* On the home page, swatch products show swatches BEFORE the price
+   (category -> swatches -> price), so a product with no swatches reserves
+   that same space ABOVE its price instead - keeping the price itself at a
+   consistent height across the row, with the button still lining up after. */
+.card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
+    margin-top:68px;
+}
+
 @media (min-width:769px){
 
     .card{
@@ -2802,6 +2810,13 @@ section{
     font-size:14px;
     color:var(--brand-dark);
     margin:8px 0;
+}
+
+/* Same reservation as .card strong above: keeps price + button aligned
+   between shop-cards that have shade swatches (Foundation, Lipstick,
+   Mascara) and ones that don't (Palette and everything else). */
+.shop-card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
+    margin-bottom:68px;
 }
 
 .shop-card .add-to-bag{
