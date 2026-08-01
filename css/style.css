@@ -2754,6 +2754,9 @@ section{
 
 .shop-card{
     position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     background:#fff;
     border:1px solid var(--border);
     border-radius:25px;
@@ -2803,6 +2806,9 @@ section{
     width:100%;
     padding:12px 8px;
     font-size:13px;
+    /* pushes the button to the bottom of the card regardless of how much
+       content (swatches, shade label, longer titles) sits above it */
+    margin-top:auto;
 }
 
 .shop-grid{
