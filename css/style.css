@@ -2757,6 +2757,8 @@ section{
     display:flex;
     flex-direction:column;
     align-items:center;
+    align-self:stretch;
+    height:100%;
     background:#fff;
     border:1px solid var(--border);
     border-radius:25px;
@@ -2814,6 +2816,7 @@ section{
 .shop-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
+    align-items:stretch;
     gap:14px;
     width:100%;
     margin:30px auto;
