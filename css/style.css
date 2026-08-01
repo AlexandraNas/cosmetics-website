@@ -910,6 +910,13 @@ nav a:hover{
     color:#5c4637;
 }
 
+/* Products showing "Available in N shades" push their price down slightly;
+   products without it reserve that same small bit of space above the price
+   instead, so the price sits at the same height across the row. */
+.card:not(:has(.shade-count)) strong{
+    margin-top:18px;
+}
+
 .shade-count{
     color:var(--text-muted);
     font-size:11px;
@@ -2811,6 +2818,12 @@ section{
     font-size:14px;
     color:var(--brand-dark);
     margin:6px 0;
+}
+
+/* Same idea as .card strong above: keeps the price level between shop-cards
+   that show "Available in N shades" and ones that don't. */
+.shop-card:not(:has(.shade-count)) strong{
+    margin-top:18px;
 }
 
 .shop-card .add-to-bag{
