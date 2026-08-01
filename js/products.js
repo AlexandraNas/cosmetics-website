@@ -103,7 +103,7 @@ function markSwatchActive(swatch) {
     }
 }
 
-// Adds a small text label under every swatch group
+// showing the shade currently selected, so it isn't only visible on hover.
 function initShadeLabels() {
     document.querySelectorAll(".shade-swatches, .lipstick-swatches, .modal-swatches").forEach(group => {
         const firstSwatch = group.querySelector(".foundation, .lip, .shade");
@@ -150,15 +150,13 @@ document.querySelectorAll(".shade").forEach(swatch => {
 
 });
 
-// The first swatch in each group matches the image shown by default
-
 document.querySelectorAll(".shade-swatches, .lipstick-swatches, .modal-swatches").forEach(group => {
     const firstSwatch = group.querySelector(".foundation, .lip, .shade");
     if (firstSwatch) firstSwatch.classList.add("active");
 });
 
 
-// PRODUCT FILTER + SEARCH
+// PRODUCT FILTER + SEARCH (combined so both can apply together)
 
 
 const filterButtons = document.querySelectorAll(".filter-btn");
