@@ -889,6 +889,10 @@ nav a:hover{
     font-size:15px;
     font-weight:600;
     color:var(--text);
+    line-height:1.3;
+    /* reserves space for up to 4 wrapped lines so every card is the same
+       height and "Add to Bag" lines up across the whole grid */
+    min-height:78px;
     margin:12px 0 6px;
 }
 
@@ -918,6 +922,7 @@ nav a:hover{
 
     .card h3{
         font-size:20px;
+        min-height:78px;
         margin:18px 0 8px;
     }
 
@@ -2774,7 +2779,10 @@ section{
     font-weight:600;
     color:var(--brand-dark);
     line-height:1.3;
-    min-height:auto;
+    /* reserves space for up to 4 wrapped lines so every card in the grid is
+       the same height, keeping "Add to Bag" lined up regardless of how long
+       the product name is */
+    min-height:78px;
     margin:10px 0 6px;
 }
 
