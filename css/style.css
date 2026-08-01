@@ -915,7 +915,7 @@ nav a:hover{
    a little of that same space above its price instead - keeping the price
    roughly level across the row, with the button still lining up after. */
 .card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
-    margin-top:28px;
+    margin-top:56px;
 }
 
 @media (min-width:769px){
@@ -2817,7 +2817,7 @@ section{
    aligned between shop-cards that have shade swatches (Foundation,
    Lipstick, Mascara) and ones that don't (Palette and everything else). */
 .shop-card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
-    margin-bottom:28px;
+    margin-bottom:56px;
 }
 
 .shop-card .add-to-bag{
@@ -3086,15 +3086,38 @@ section{
 }
 
 .modal-features{
-    display:inline-block;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
     text-align:left;
-    margin:25px auto;
+    margin:20px 0;
 }
 
 .modal-features p{
-    margin:10px 0;
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin:0;
     color:var(--text);
-    font-size:15px;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.feature-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:15px;
+    height:15px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--bg-soft);
+    margin-top:2px;
+}
+
+.feature-icon i{
+    font-size:7px;
+    color:var(--brand-dark);
 }
 
 .modal-rating{
@@ -3120,34 +3143,29 @@ section{
 }
 
 .ingredients-title{
-    margin-top:30px;
-    margin-bottom:15px;
+    margin-top:20px;
+    margin-bottom:10px;
     font-family:"Cormorant Garamond", serif;
-    font-size:24px;
+    font-size:17px;
     font-weight:600;
     color:var(--brand-dark);
 }
 
 .ingredient-tags{
     display:flex;
-    gap:10px;
+    gap:8px;
     flex-wrap:wrap;
     justify-content:center;
 }
 
 .ingredient-tags span{
-    background:transparent;
-    border:none;
-    padding:0;
+    background:var(--bg-soft);
+    border:1px solid var(--champagne);
+    padding:3px 8px;
+    border-radius:12px;
     color:var(--brand-dark);
     font-weight:500;
-    font-size:15px;
-}
-
-.ingredient-tags span:not(:last-child)::after{
-    content:"•";
-    margin-left:10px;
-    color:var(--champagne);
+    font-size:10px;
 }
 
 .modal-info .primary-btn{
@@ -3204,9 +3222,7 @@ section{
     }
 
     .modal-features{
-        display:block;
-        text-align:left;
-        margin:25px 0 35px;
+        margin:20px 0 30px;
     }
 
     .ingredient-tags{
