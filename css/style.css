@@ -596,7 +596,7 @@ nav a:hover{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:15px;
+    gap:10px;
     margin-top:auto;
 }
 
@@ -890,16 +890,17 @@ nav a:hover{
     font-weight:600;
     color:var(--text);
     line-height:1.3;
-    /* reserves space for up to 4 wrapped lines so every card is the same
+    /* reserves space for up to 2 wrapped lines so every card is the same
        height and "Add to Bag" lines up across the whole grid */
-    min-height:78px;
-    margin:12px 0 6px;
+    min-height:40px;
+    margin:8px 0 4px;
 }
 
 .card p{
     color:var(--text-muted);
     font-size:12px;
     letter-spacing:.5px;
+    margin:0 0 4px;
 }
 
 .card strong{
@@ -911,27 +912,27 @@ nav a:hover{
 
 /* On the home page, swatch products show swatches BEFORE the price
    (category -> swatches -> price), so a product with no swatches reserves
-   that same space ABOVE its price instead - keeping the price itself at a
-   consistent height across the row, with the button still lining up after. */
+   a little of that same space above its price instead - keeping the price
+   roughly level across the row, with the button still lining up after. */
 .card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
-    margin-top:68px;
+    margin-top:28px;
 }
 
 @media (min-width:769px){
 
     .card{
-        padding:30px;
+        padding:22px;
     }
 
     .product-image{
-        height:260px;
-        margin-bottom:18px;
+        height:230px;
+        margin-bottom:12px;
     }
 
     .card h3{
         font-size:20px;
-        min-height:78px;
-        margin:18px 0 8px;
+        min-height:52px;
+        margin:14px 0 6px;
     }
 
     .card p{
@@ -2509,10 +2510,10 @@ section{
 
 .product-image{
     width:100%;
-    height:150px;
+    height:140px;
     object-fit:contain;
     display:block;
-    margin-bottom:10px;
+    margin-bottom:6px;
     transition:transform .3s ease;
     cursor:pointer;
 }
@@ -2556,7 +2557,7 @@ section{
     justify-content:center;
     align-items:center;
     gap:10px;
-    margin:12px 0;
+    margin:6px 0;
 }
 
 .lip{
@@ -2645,7 +2646,7 @@ section{
 
 /* live text label showing the currently selected shade name */
 .shade-label{
-    margin:8px 0 0;
+    margin:4px 0 0;
     font-size:10.5px;
     font-weight:500;
     letter-spacing:.3px;
@@ -2792,11 +2793,11 @@ section{
     font-weight:600;
     color:var(--brand-dark);
     line-height:1.3;
-    /* reserves space for up to 4 wrapped lines so every card in the grid is
+    /* reserves space for up to 2 wrapped lines so every card in the grid is
        the same height, keeping "Add to Bag" lined up regardless of how long
        the product name is */
-    min-height:78px;
-    margin:10px 0 6px;
+    min-height:40px;
+    margin:8px 0 4px;
 }
 
 .category{
@@ -2809,14 +2810,14 @@ section{
     display:block;
     font-size:14px;
     color:var(--brand-dark);
-    margin:8px 0;
+    margin:6px 0;
 }
 
-/* Same reservation as .card strong above: keeps price + button aligned
-   between shop-cards that have shade swatches (Foundation, Lipstick,
-   Mascara) and ones that don't (Palette and everything else). */
+/* Same reservation as .card strong above: keeps price + button roughly
+   aligned between shop-cards that have shade swatches (Foundation,
+   Lipstick, Mascara) and ones that don't (Palette and everything else). */
 .shop-card:not(:has(.shade-swatches, .lipstick-swatches)) strong{
-    margin-bottom:68px;
+    margin-bottom:28px;
 }
 
 .shop-card .add-to-bag{
@@ -2845,23 +2846,23 @@ section{
     }
 
     .shop-product-image{
-        height:320px;
+        height:260px;
         padding:10px;
     }
 
     .shop-card{
-        padding:25px;
+        padding:20px;
     }
 
     .shop-card h3{
         font-size:22px;
-        min-height:60px;
-        margin:18px 0 12px;
+        min-height:44px;
+        margin:12px 0 8px;
     }
 
     .shop-card strong{
         font-size:18px;
-        margin:15px 0;
+        margin:8px 0;
     }
 
     .shop-card .add-to-bag{
@@ -2879,7 +2880,7 @@ section{
     }
 
     .shop-card{
-        padding:35px;
+        padding:24px;
     }
 
 }
