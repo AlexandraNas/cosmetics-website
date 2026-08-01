@@ -103,7 +103,8 @@ function markSwatchActive(swatch) {
     }
 }
 
-// showing the shade currently selected, so it isn't only visible on hover.
+// Adds a small text label under every swatch group (card and modal alike)
+
 function initShadeLabels() {
     document.querySelectorAll(".shade-swatches, .lipstick-swatches, .modal-swatches").forEach(group => {
         const firstSwatch = group.querySelector(".foundation, .lip, .shade");
@@ -232,7 +233,6 @@ if (searchIcon) {
 }
 
 // Applies the active category filter AND the current search term together
-
 function applyFilters() {
     const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
     const productSections = document.querySelectorAll(".product-section");
@@ -248,7 +248,8 @@ function applyFilters() {
             const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
             const show = matchesSearch && matchesCategory;
 
-            card.style.display = show ? "block" : "none";
+    
+            card.style.display = show ? "flex" : "none";
             if (show) anyVisibleInSection = true;
         });
 
