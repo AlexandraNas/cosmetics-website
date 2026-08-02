@@ -406,7 +406,6 @@ nav a:hover{
 
 }
 
-
 /* buttons */
 
 .primary-btn{
@@ -890,8 +889,7 @@ nav a:hover{
     font-weight:600;
     color:var(--text);
     line-height:1.3;
-    /* reserves space for up to 2 wrapped lines so every card is the same
-       height and "Add to Bag" lines up across the whole grid */
+   
     min-height:40px;
     margin:8px 0 4px;
 }
@@ -910,9 +908,6 @@ nav a:hover{
     color:#5c4637;
 }
 
-/* Products showing "Available in N shades" push their price down slightly;
-   products without it reserve that same small bit of space above the price
-   instead, so the price sits at the same height across the row. */
 .card:not(:has(.shade-count)) strong{
     margin-top:18px;
 }
@@ -2800,9 +2795,6 @@ section{
     font-weight:600;
     color:var(--brand-dark);
     line-height:1.3;
-    /* reserves space for up to 2 wrapped lines so every card in the grid is
-       the same height, keeping "Add to Bag" lined up regardless of how long
-       the product name is */
     min-height:40px;
     margin:8px 0 4px;
 }
@@ -2820,18 +2812,14 @@ section{
     margin:6px 0;
 }
 
-/* Same idea as .card strong above: keeps the price level between shop-cards
-   that show "Available in N shades" and ones that don't. */
 .shop-card:not(:has(.shade-count)) strong{
-    margin-top:18px;
+    margin-top:24px;
 }
 
 .shop-card .add-to-bag{
     width:100%;
     padding:12px 8px;
     font-size:13px;
-    /* pushes the button to the bottom of the card regardless of how much
-       content (swatches, shade label, longer titles) sits above it */
     margin-top:auto;
 }
 
