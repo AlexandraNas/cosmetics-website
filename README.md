@@ -1,19 +1,20 @@
 # AGL Beauty | Alexa Glow London
 
-A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript as the summative assignment for **CPU4104**.
+A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript as the summative assignment for Module 4: Web Development. 
 
 ![Home page preview](Responsive.png)
 
 ## Student Information
 
-- **Name:** [Alexandra Nastase]
-- **Student ID:** [Your Student ID]
-- **Module**: CPU4104
-- **GitHub Repository:** [https://github.com/AlexandraNas/cosmetics-website]
+- **Name:** Alexandra Nastase
+- **Student ID:** G276403
+- **Module:** CPU4104
+- **GitHub Repository:** https://github.com/AlexandraNas/cosmetics-website
+- **Live Site:** https://alexandranas.github.io/cosmetics-website/
 
 ## Project Overview
 
-AGL Beauty is a fictional luxury skincare and cosmetics brand, and this project brings it to life as a working online shop front. Visitors can browse products by category, open a product to see the full description and ingredients, add items to a bag, adjust quantities, and go all the way through a mock checkout. There's no real backend or database behind any of it - everything runs in the browser, with the shopping bag saved through `localStorage` so it survives a page refresh or a trip between pages.
+AGL|Alexa Glow London is a fictional luxury skincare and cosmetics brand, and this project brings it to life as a working online shop front. Visitors can browse products by category, open a product to see the full description and ingredients, add items to a bag, adjust quantities, and go all the way through a mock checkout. There's no real backend or database behind any of it - everything runs in the browser, with the shopping bag saved through `localStorage` so it survives a page refresh or a trip between pages.
 
 This is a demonstration project built for educational purposes. No real payments are taken and nothing is ever actually shipped.
 
@@ -93,13 +94,12 @@ AGL-Beauty/
 │   ├── images/         # product photos, banners
 │   └── video/          # homepage hero background video
 │
-├── evidence/            # Lighthouse accessibility audit screenshots
+├── evidence/            # Lighthouse audit screenshots (accessibility + performance)
 │   ├── Problem1.png / Fix1.png
 │   ├── Problem2.png / Fix2.png
 │   └── Problem3.png / Fix3.png
 │
-├── Responsive.png          # README preview image
-│   
+├── Responsive.png       # README preview image
 │
 └── README.md
 ```
@@ -126,13 +126,13 @@ This is a front-end-only project - there's no real backend, database, or payment
 
 ## Accessibility Testing
 
-The site was audited with Google Chrome Lighthouse, and a couple of issues came up worth mentioning, along with how they were fixed. Before/after screenshots of two of these are in the `evidence/` folder (`Problem1.png`/`Fix1.png` and `Problem2.png`/`Fix2.png`).
+The site was audited with Google Chrome Lighthouse, and three issues came up worth mentioning, along with how they were fixed. Before/after screenshots of these are in the `evidence/` folder (`Problem1.png`/`Fix1.png` and `Problem2.png`/`Fix2.png`).
 
 The first was a link relying on colour alone to stand out. The "Privacy Policy" link inside the newsletter text only picked up an underline when hovered, meaning it looked identical to the surrounding paragraph the rest of the time - something that fails for anyone who can't rely on colour contrast to spot it as a link. It's now permanently underlined, with only the colour shifting slightly on hover, so it reads as a link at every moment, not just when someone's mouse happens to be over it.
 
 The second was a heading order problem with the four category shortcut cards (Skincare, Makeup, Hair Care, Beauty Tools) - at the time shown on `products.html` - which jumped straight from the page's `<h1>` to `<h3>`, skipping `<h2>` entirely. That kind of gap breaks the outline that screen reader users navigate by, even though visually nobody would ever notice. The fix was simply changing those four headings to `<h2>`, so the page flowed `h1 → h2 → h3` with nothing skipped, and the CSS was updated to match so nothing looked any different. The cards have since been moved to the home page under a "Shop by Collection" heading, and the same non-skipping heading order was kept in the move.
 
-A later audit of the deployed site on `products.html` flagged a third issue: the active state on the category filter buttons (All / Skincare / Makeup / Hair Care / Beauty Tools) used white text on a mid-tone tan background, which came out to roughly a 2.7:1 contrast ratio - well short of the 4.5:1 minimum for normal text. It's fixed by switching the active button's background to the same dark brown already used for the site's primary buttons and "New" badges, which brings the contrast up to around 11.7:1 and keeps the active filter visually consistent with the rest of the site's dark accent colour.
+The third was found on the deployed site: the active state on the category filter buttons (All / Skincare / Makeup / Hair Care / Beauty Tools) used white text on a mid-tone tan background, which came out to roughly a 2.7:1 contrast ratio - well short of the 4.5:1 minimum for normal text. It's fixed by switching the active button's background to the same dark brown already used for the site's primary buttons and "New" badges, which brings the contrast up to around 11.7:1 and keeps the active filter visually consistent with the rest of the site's dark accent colour. This one isn't pictured separately, since its before/after is the Lighthouse score change described below.
 
 With all three of those fixed, Lighthouse now scores `products.html` at 100 for Performance, Accessibility, Best Practices, and SEO.
 
@@ -146,4 +146,4 @@ Both were fixed the same way: fonts moved out of the CSS and into `<link rel="pr
 
 ## Academic Integrity
 
-This project was created as a summative assignment for CPU4104 and is submitted as original work.
+This project was created as a summative assignment for Module 4: Web Development and is submitted as original work.
