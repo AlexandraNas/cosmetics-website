@@ -8,7 +8,7 @@ A front-end e-commerce website for a beauty and cosmetics brand, built with HTML
 
 - **Name:** Alexandra Nastase
 - **Student ID:** G276403
-- **Module:** CPU4104
+- **Module:** CPU4104 | Module 4 | Web Development
 - **GitHub Repository:** https://github.com/AlexandraNas/cosmetics-website
 - **Live Site:** https://alexandranas.github.io/cosmetics-website/
 
