@@ -1,4 +1,4 @@
-# AGL Beauty | Alexa Glow London
+# AGL | Alexa Glow London
 
 A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript as the summative assignment for Module 4: Web Development. 
 
@@ -14,7 +14,7 @@ A front-end e-commerce website for a beauty and cosmetics brand, built with HTML
 
 ## Project Overview
 
-AGL|Alexa Glow London is a fictional luxury skincare and cosmetics brand, and this project brings it to life as a working online shop front. Visitors can browse products by category, open a product to see the full description and ingredients, add items to a bag, adjust quantities, and go all the way through a mock checkout. There's no real backend or database behind any of it - everything runs in the browser, with the shopping bag saved through `localStorage` so it survives a page refresh or a trip between pages.
+AGL | Alexa Glow London is a fictional luxury skincare and cosmetics brand, and this project brings it to life as a working online shop front. Visitors can browse products by category, open a product to see the full description and ingredients, add items to a bag, adjust quantities, and go all the way through a mock checkout. There's no real backend or database behind any of it - everything runs in the browser, with the shopping bag saved through `localStorage` so it survives a page refresh or a trip between pages.
 
 This is a demonstration project built for educational purposes. No real payments are taken and nothing is ever actually shipped.
 
