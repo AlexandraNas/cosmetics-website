@@ -2795,6 +2795,9 @@ section{
     font-weight:600;
     color:var(--brand-dark);
     line-height:1.3;
+    /* reserves space for up to 2 wrapped lines so every card in the grid is
+       the same height, keeping "Add to Bag" lined up regardless of how long
+       the product name is */
     min-height:40px;
     margin:8px 0 4px;
 }
@@ -2812,6 +2815,10 @@ section{
     margin:6px 0;
 }
 
+/* Same idea as .card strong above: keeps the price level between shop-cards
+   that show "Available in N shades" and ones that don't. This value also
+   covers the 6px margin-top strong normally gets (see rule above), which
+   this override replaces rather than adds to. */
 .shop-card:not(:has(.shade-count)) strong{
     margin-top:24px;
 }
@@ -2820,6 +2827,8 @@ section{
     width:100%;
     padding:12px 8px;
     font-size:13px;
+    /* pushes the button to the bottom of the card regardless of how much
+       content (swatches, shade label, longer titles) sits above it */
     margin-top:auto;
 }
 
@@ -3034,12 +3043,13 @@ section{
     cursor:zoom-in;
 }
 
+@media (max-width:768px){
     #foundationModal .modal-image-container,
     #lipstickModal .modal-image-container,
     #mascaraModal .modal-image-container{
         max-width:105px;
     }
-
+}
 
 .modal-image{
     display:block;
