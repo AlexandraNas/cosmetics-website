@@ -2,14 +2,14 @@
 
 A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript as the summative assignment for **CPU4104**.
 
-![Home page preview](screenshots/home-desktop.png)
+![Home page preview](Responsive.png)
 
 ## Student Information
 
-- **Name:** [Your Name]
+- **Name:** [Alexandra Nastase]
 - **Student ID:** [Your Student ID]
-- **Module:** CPU4104
-- **GitHub Repository:** [Add your repo link here]
+- **Module**: CPU4104
+- **GitHub Repository:** [https://github.com/AlexandraNas/cosmetics-website]
 
 ## Project Overview
 
@@ -22,14 +22,15 @@ This is a demonstration project built for educational purposes. No real payments
 **Home page**
 - Sticky navigation bar with a dropdown menu and a mobile hamburger menu
 - Hero banner with a background video
-- Featured products grid
+- "Shop by Collection" category cards linking straight into each section of the shop
+- Featured products grid, with "New" badges on newly added products and an "Available in N shades" note on multi-shade products (foundation, lipstick)
 - Newsletter signup and footer
 
 **Product listing** (`products.html`)
-- 12 products across 4 categories: Skincare, Makeup, Hair Care, and Beauty Tools
-- Category filter buttons and a live search bar
-- Shade and colour swatches for foundation, lipstick, and mascara that update the product image as you pick
-- A full product detail view in a popup modal, with an image zoom on hover, description, and key ingredients
+- 16 products across 4 categories: Skincare, Makeup, Hair Care, and Beauty Tools
+- Category filter buttons (All / Skincare / Makeup / Hair Care / Beauty Tools) that work together with a live search bar, showing a "no products found" message when nothing matches
+- Products with more than one option (foundation, lipstick, mascara) show an "Available in N shades" note on the card; the actual shade and colour swatches live inside that product's modal, ringing the selected shade, updating the product photo, and showing the shade's name as you pick
+- A full product detail view in a popup modal, with an image zoom on hover, a description, a checklist of key features (each with a small check-icon marker), and key ingredients shown as rounded pill tags
 
 **Shopping bag** (`cart.html`)
 - Add, remove, and adjust the quantity of items
@@ -48,6 +49,8 @@ This is a demonstration project built for educational purposes. No real payments
 - Semantic HTML throughout, proper `header`, `nav`, `main`, and `footer` usage
 - Descriptive `alt` text on images and `aria-label`s on icon-only buttons
 - Visually-hidden labels on every form field, so inputs are properly labelled for screen readers even where the design only shows a placeholder
+- Keyboard-accessible shade swatches inside each product modal, and keyboard-accessible modals overall
+- A real, keyboard-operable search toggle button with a proper label, instead of relying on placeholder text alone
 - Mobile-first layout that scales up cleanly from phone to tablet to desktop
 
 ## Technologies Used
@@ -87,15 +90,16 @@ AGL-Beauty/
 │   └── faq.js          # FAQ accordion toggle
 │
 ├── media/
-│   ├── images/         # product photos, banners, icons
+│   ├── images/         # product photos, banners
 │   └── video/          # homepage hero background video
 │
 ├── evidence/            # Lighthouse accessibility audit screenshots
 │   ├── Problem1.png / Fix1.png
-│   └── Problem2.png / Fix2.png
+│   ├── Problem2.png / Fix2.png
+│   └── Problem3.png / Fix3.png
 │
-├── screenshots/          # README preview image
-│   └── home-desktop.png
+├── Responsive.png          # README preview image
+│   
 │
 └── README.md
 ```
@@ -126,17 +130,19 @@ The site was audited with Google Chrome Lighthouse, and a couple of issues came 
 
 The first was a link relying on colour alone to stand out. The "Privacy Policy" link inside the newsletter text only picked up an underline when hovered, meaning it looked identical to the surrounding paragraph the rest of the time - something that fails for anyone who can't rely on colour contrast to spot it as a link. It's now permanently underlined, with only the colour shifting slightly on hover, so it reads as a link at every moment, not just when someone's mouse happens to be over it.
 
-The second was a heading order problem on `products.html`. The four category shortcut cards (Skincare, Makeup, Hair Care, Beauty Tools) jumped straight from the page's `<h1>` to `<h3>`, skipping `<h2>` entirely. That kind of gap breaks the outline that screen reader users navigate by, even though visually nobody would ever notice. The fix was simply changing those four headings to `<h2>`, so the page now flows `h1 → h2 → h3` with nothing skipped, and the CSS was updated to match so nothing looks any different.
+The second was a heading order problem with the four category shortcut cards (Skincare, Makeup, Hair Care, Beauty Tools) - at the time shown on `products.html` - which jumped straight from the page's `<h1>` to `<h3>`, skipping `<h2>` entirely. That kind of gap breaks the outline that screen reader users navigate by, even though visually nobody would ever notice. The fix was simply changing those four headings to `<h2>`, so the page flowed `h1 → h2 → h3` with nothing skipped, and the CSS was updated to match so nothing looked any different. The cards have since been moved to the home page under a "Shop by Collection" heading, and the same non-skipping heading order was kept in the move.
+
+A later audit of the deployed site on `products.html` flagged a third issue: the active state on the category filter buttons (All / Skincare / Makeup / Hair Care / Beauty Tools) used white text on a mid-tone tan background, which came out to roughly a 2.7:1 contrast ratio - well short of the 4.5:1 minimum for normal text. It's fixed by switching the active button's background to the same dark brown already used for the site's primary buttons and "New" badges, which brings the contrast up to around 11.7:1 and keeps the active filter visually consistent with the rest of the site's dark accent colour.
+
+With all three of those fixed, Lighthouse now scores `products.html` at 100 for Performance, Accessibility, Best Practices, and SEO.
 
 ## Performance Optimization
 
-Running Lighthouse on `cart.html` returned a performance score of 79, with most of it coming down to render-blocking requests (an estimated 2.77 seconds worth) and a related font-display warning.
+Running Lighthouse on `cart.html` returned a performance score of 79, with most of it coming down to render-blocking requests (an estimated 2.77 seconds worth) and a related font-display warning. Before/after screenshots of this are in the `evidence/` folder (`Problem3.png`/`Fix3.png`).
 
 The root cause was that the site's fonts were being pulled in through an `@import` rule inside `style.css`. `@import` makes the browser fully fetch and parse the whole stylesheet before it even discovers the font needs loading, which turns what should be a parallel download into one slow chain: HTML, then style.css, then the font CSS, then finally the font files. The Font Awesome icon stylesheet had the same problem, blocking the page's first paint even though each page only actually uses a handful of its icons.
 
 Both were fixed the same way: fonts moved out of the CSS and into `<link rel="preconnect">` and `<link rel="stylesheet">` tags in each page's `<head>`, so the browser finds and fetches them straight away instead of waiting on the rest of the stylesheet. Font Awesome now loads through a non-blocking pattern (`media="print" onload="this.media='all'"`, with a `<noscript>` fallback for accessibility), so it no longer holds up rendering. None of this changes how anything looks - it's purely about load order.
-
-A second audit on `products.html` flagged image delivery next, estimating over 13,000 KiB in potential savings. The cause was straightforward: every product image on the page, including all 12 hidden product-modal images, was being downloaded the moment the page loaded, whether or not the visitor ever scrolled that far or opened a single modal. Every image except the one visible above the fold now has `loading="lazy"` and `decoding="async"` added, so the browser only fetches an image once it's actually needed. The same change was carried over to `index.html`'s featured products and modals, since all of that sits below the hero video. This cuts down what's downloaded up front without changing anything visually - the remaining part of that saving would need the actual image files themselves compressed or resized, which is a manual step outside the code (a tool like Squoosh or TinyPNG would handle that).
 
 ## Academic Integrity
 
