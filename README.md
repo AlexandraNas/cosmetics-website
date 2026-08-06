@@ -68,7 +68,7 @@ No backend, frameworks, or external JS libraries were used, in line with the ass
 
 ```
 AGL-Beauty/
-│
+├── index.html          ← NEW redirect file
 ├── pages/
 │   ├── index.html
 │   ├── products.html
