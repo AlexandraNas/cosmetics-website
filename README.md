@@ -2,7 +2,7 @@
 
 A front-end e-commerce website for a beauty and cosmetics brand, built with HTML, CSS, and vanilla JavaScript as the summative assignment for Module 4: Web Development. 
 
-![Home page preview](Responsive.png)
+![Home page preview](screenshots/Responsive.png)
 
 ## Student Information
 
@@ -69,15 +69,16 @@ No backend, frameworks, or external JS libraries were used, in line with the ass
 ```
 AGL-Beauty/
 │
-├── index.html
-├── products.html
-├── cart.html
-├── checkout.html
-├── confirmation.html
-├── about.html
-├── contact.html
-├── faq.html
-├── policy.html
+├── pages/
+│   ├── index.html
+│   ├── products.html
+│   ├── cart.html
+│   ├── checkout.html
+│   ├── confirmation.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── faq.html
+│   └── policy.html
 │
 ├── css/
 │   └── style.css
@@ -99,7 +100,8 @@ AGL-Beauty/
 │   ├── Problem2.png / Fix2.png
 │   └── Problem3.png / Fix3.png
 │
-├── Responsive.png       # README preview image
+├── screenshots/
+│   └── Responsive.png   # README preview image
 │
 └── README.md
 ```
@@ -110,13 +112,13 @@ This is a static front-end project, so there's no build step, server, or depende
 
 **Option 1 - Open directly**
 1. Download or clone the project folder.
-2. Open `index.html` in any modern browser.
+2. Open `pages/index.html` in any modern browser.
 
 **Option 2 - Live Server (recommended, so relative paths behave correctly)**
 1. Open the project folder in VS Code.
 2. Install the **Live Server** extension if you don't already have it.
-3. Right-click `index.html` and choose **Open with Live Server**.
-4. The site opens at `http://127.0.0.1:5500` (or similar) on the homepage.
+3. Right-click `pages/index.html` and choose **Open with Live Server**.
+4. The site opens at `http://127.0.0.1:5500/pages/` (or similar) on the homepage.
 
 From there, use the navigation bar to move between Home, Shop, About, Contact, and the Bag.
 
