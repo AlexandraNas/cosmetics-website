@@ -122,7 +122,7 @@ This is a static front-end project, so there's no build step, server, or depende
 
 From there, use the navigation bar to move between Home, Shop, About, Contact, and the Bag.
 
-## Notes & Limitations
+## Notes
 
 This is a front-end-only project - there's no real backend, database, or payment gateway behind it, and the checkout simply simulates placing an order. Since the bag is stored in the browser's `localStorage`, it'll be empty the first time the site is opened in a new browser, and clearing site data resets it. None of that affects how the site actually works or looks; it's just a reminder that nothing here is connected to a real store.
 
@@ -145,7 +145,3 @@ Running Lighthouse on `cart.html` returned a performance score of 79, with most 
 The root cause was that the site's fonts were being pulled in through an `@import` rule inside `style.css`. `@import` makes the browser fully fetch and parse the whole stylesheet before it even discovers the font needs loading, which turns what should be a parallel download into one slow chain: HTML, then style.css, then the font CSS, then finally the font files. The Font Awesome icon stylesheet had the same problem, blocking the page's first paint even though each page only actually uses a handful of its icons.
 
 Both were fixed the same way: fonts moved out of the CSS and into `<link rel="preconnect">` and `<link rel="stylesheet">` tags in each page's `<head>`, so the browser finds and fetches them straight away instead of waiting on the rest of the stylesheet. Font Awesome now loads through a non-blocking pattern (`media="print" onload="this.media='all'"`, with a `<noscript>` fallback for accessibility), so it no longer holds up rendering. None of this changes how anything looks - it's purely about load order.
-
-## Academic Integrity
-
-This project was created as a summative assignment for Module 4: Web Development and is submitted as original work.
