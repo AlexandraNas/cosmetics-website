@@ -56,9 +56,9 @@ This is a demonstration project built for educational purposes. No real payments
 
 ## Technologies Used
 
-- **HTML5** - semantic markup
-- **CSS3** - a custom mobile-first stylesheet, no frameworks like Bootstrap or Tailwind
-- **JavaScript (ES6)** - vanilla DOM manipulation only, no jQuery or libraries
+- **HTML** - semantic markup
+- **CSS** - a custom mobile-first stylesheet, no frameworks like Bootstrap or Tailwind
+- **JavaScript** - vanilla DOM manipulation only, no jQuery or libraries
 - [Google Fonts](https://fonts.google.com/) - Cormorant Garamond and Poppins
 - [Font Awesome](https://fontawesome.com/) - icons, loaded from a CDN
 
